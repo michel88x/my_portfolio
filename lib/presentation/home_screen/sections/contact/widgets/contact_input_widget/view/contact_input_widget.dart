@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/contact/widgets/contact_input_widget/variants/contact_input_widget_desktop.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/contact/widgets/contact_input_widget/variants/contact_input_widget_mobile.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/contact/widgets/contact_input_widget/variants/contact_input_widget_tablet.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+class ContactInputWidget extends StatelessWidget {
+
+  final String title;
+  final String hint;
+  final TextEditingController controller;
+  final TextInputType keyboardType;
+  final int numRows;
+
+  const ContactInputWidget({
+    super.key,
+    required this.title,
+    required this.hint,
+    required this.controller,
+    required this.keyboardType,
+    required this.numRows
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenTypeLayout.builder(
+      desktop: (context) => ContactInputWidgetDesktop(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
+      tablet: (context) => ContactInputWidgetTablet(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
+      mobile: (context) => ContactInputWidgetMobile(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
+    );
+  }
+}
