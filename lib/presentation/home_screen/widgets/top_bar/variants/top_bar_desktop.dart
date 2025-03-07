@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/hover_image.dart';
 import 'package:my_new_portfolio/core/base_widgets/hover_text.dart';
 import 'package:my_new_portfolio/presentation/home_screen/providers/home_provider.dart';
@@ -32,7 +31,6 @@ class TopBarDesktop extends StatefulWidget {
 
 class _TopBarDesktopState extends State<TopBarDesktop> {
 
-  late AppStyles appStyles;
   late HomeProvider provider;
 
   @override
@@ -41,11 +39,6 @@ class _TopBarDesktopState extends State<TopBarDesktop> {
     provider = Provider.of<HomeProvider>(context);
   }
 
-  @override
-  void initState() {
-    super.initState();
-    appStyles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -93,7 +86,7 @@ class _TopBarDesktopState extends State<TopBarDesktop> {
               ),
               Text(
                 "Michel.dev",
-                style: appStyles.twentyWhite.copyWith(
+                style: AppStyles.normalWhite.copyWith(
                   fontSize: twenty
                 ),
               ),

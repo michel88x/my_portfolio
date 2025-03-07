@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_section_widget/view/resume_section_widget.dart';
@@ -19,13 +18,6 @@ class ResumeSectionDesktop extends StatefulWidget {
 
 class _ResumeSectionDesktopState extends State<ResumeSectionDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -45,7 +37,7 @@ class _ResumeSectionDesktopState extends State<ResumeSectionDesktop> {
         children: [
           Text(
             ResumeSectionDataset.title1,
-            style: styles.seventyPrimaryBold.copyWith(
+            style: AppStyles.boldestPrimaryColor.copyWith(
               fontSize: seventy
             ),
           ),
@@ -55,7 +47,7 @@ class _ResumeSectionDesktopState extends State<ResumeSectionDesktop> {
               Expanded(
                 child: Text(
                   ResumeSectionDataset.title2,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                 ),

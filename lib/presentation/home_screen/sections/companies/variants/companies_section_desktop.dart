@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/companies/dataset/companies_section_dataset.dart';
 
 class CompaniesSectionDesktop extends StatefulWidget {
@@ -15,7 +14,6 @@ class CompaniesSectionDesktop extends StatefulWidget {
 
 class _CompaniesSectionDesktopState extends State<CompaniesSectionDesktop> {
 
-  late AppStyles styles;
   final _controller = ScrollController();
   late Timer timer;
   double totalItemWidth = 180;
@@ -23,7 +21,6 @@ class _CompaniesSectionDesktopState extends State<CompaniesSectionDesktop> {
   @override
   void initState() {
     super.initState();
-    styles = AppStylesDesktop();
     WidgetsBinding.instance.addPostFrameCallback((c) {
       start(totalItemWidth);
     });
@@ -49,14 +46,14 @@ class _CompaniesSectionDesktopState extends State<CompaniesSectionDesktop> {
           Text(
             CompaniesSectionDataset.title,
             textAlign: TextAlign.center,
-            style: styles.seventyWhiteBold.copyWith(
+            style: AppStyles.boldestWhite.copyWith(
               fontSize: fourty
             ),
           ),
           SizedBox(height: twenty,),
           Text(
             CompaniesSectionDataset.subTitle,
-            style: styles.eighteenTextGrey2.copyWith(
+            style: AppStyles.normalTextGrey2.copyWith(
                 fontSize: eighteen
             ),
             textAlign: TextAlign.center,

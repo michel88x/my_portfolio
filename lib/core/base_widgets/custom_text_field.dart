@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 
 class CustomTextField extends StatelessWidget {
 
@@ -12,7 +12,6 @@ class CustomTextField extends StatelessWidget {
   final double horizontalPadding;
   final TextInputType keyboardType;
   final double textSize;
-  final AppStyles styles;
   final int? numRows;
 
   const CustomTextField({
@@ -25,7 +24,6 @@ class CustomTextField extends StatelessWidget {
     required this.horizontalPadding,
     this.keyboardType = TextInputType.text,
     required this.textSize,
-    required this.styles,
     this.numRows
   });
 
@@ -38,13 +36,13 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         keyboardType: keyboardType,
         maxLines: numRows,
-        style: styles.fourteenTextGrey2.copyWith(
+        style: AppStyles.normalTextGrey2.copyWith(
           color: Colors.white,
           fontSize: textSize
         ),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: styles.fourteenTextGrey2.copyWith(
+          hintStyle: AppStyles.normalTextGrey2.copyWith(
             fontSize: textSize
           ),
           filled: true,

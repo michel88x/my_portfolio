@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_education_object.dart';
 
 class ResumeEducationWidgetDesktop extends StatefulWidget {
@@ -20,13 +19,6 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
 
   bool hovered = false;
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -82,14 +74,14 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
                 children: [
                   Text(
                     widget.data.dates,
-                    style: styles.eighteenPrimaryBold.copyWith(
+                    style: AppStyles.boldPrimaryColor.copyWith(
                       fontSize: sixteen
                     ),
                   ),
                   SizedBox(height: ten,),
                   Text(
                     widget.data.title,
-                    style: styles.twentyTwoWhiteBold.copyWith(
+                    style: AppStyles.boldWhite.copyWith(
                       fontSize: twentyTwo
                     ),
                   ),
@@ -99,14 +91,14 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
                       Expanded(
                         child: Text(
                           widget.data.subtitle,
-                          style: styles.eighteenTextGrey2.copyWith(
+                          style: AppStyles.normalTextGrey2.copyWith(
                             fontSize: sixteen
                           ),
                         ),
                       ),
                       Text(
                         "${widget.data.degree}/${widget.data.overall}",
-                        style: styles.twentyTwoPrimaryBold.copyWith(
+                        style: AppStyles.boldPrimaryColor.copyWith(
                           fontSize: twentyTwo
                         ),
                       )

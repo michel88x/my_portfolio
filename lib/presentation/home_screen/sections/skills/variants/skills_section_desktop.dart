@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/skills/dataset/skills_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/skills/widgets/skills_section_widget/view/skills_section_widget.dart';
 
@@ -14,13 +13,6 @@ class SkillsSectionDesktop extends StatefulWidget {
 
 class _SkillsSectionDesktopState extends State<SkillsSectionDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -39,7 +31,7 @@ class _SkillsSectionDesktopState extends State<SkillsSectionDesktop> {
         children: [
           Text(
             SkillsSectionDataset.title1,
-            style: styles.seventyPrimaryBold.copyWith(
+            style: AppStyles.boldestPrimaryColor.copyWith(
               fontSize: seventy
             ),
             textAlign: TextAlign.center,
@@ -47,7 +39,7 @@ class _SkillsSectionDesktopState extends State<SkillsSectionDesktop> {
           SizedBox(height: twenty,),
           Text(
             SkillsSectionDataset.title2,
-            style: styles.eighteenTextGrey2.copyWith(
+            style: AppStyles.normalTextGrey2.copyWith(
               fontSize: eighteen
             ),
             textAlign: TextAlign.center,

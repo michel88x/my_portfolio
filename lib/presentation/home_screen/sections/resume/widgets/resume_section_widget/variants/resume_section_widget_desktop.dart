@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_education_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_experience_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_education_widget/view/resume_education_widget.dart';
@@ -11,7 +11,6 @@ class ResumeSectionWidgetDesktop extends StatelessWidget {
 
   final String icon;
   final String title;
-  final AppStyles styles;
   final List<ResumeEducationObject>? educationList;
   final List<ResumeExperienceObject>? experienceList;
 
@@ -19,7 +18,6 @@ class ResumeSectionWidgetDesktop extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    required this.styles,
     this.educationList,
     this.experienceList
   });
@@ -67,7 +65,7 @@ class ResumeSectionWidgetDesktop extends StatelessWidget {
                 Expanded(
                   child: Text(
                     title,
-                    style: styles.fourtyWhiteBold.copyWith(
+                    style: AppStyles.boldestWhite.copyWith(
                       fontSize: fourty
                     ),
                   ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/core/utils/base_functions.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/contact/dataset/contact_action_object.dart';
@@ -29,18 +28,12 @@ class ContactSectionDesktop extends StatefulWidget {
 
 class _ContactSectionDesktopState extends State<ContactSectionDesktop> {
 
-  late AppStyles styles;
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController subjectController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -63,7 +56,7 @@ class _ContactSectionDesktopState extends State<ContactSectionDesktop> {
         children: [
           Text(
             ContactSectionDataset.title,
-            style: styles.seventyPrimaryBold.copyWith(
+            style: AppStyles.boldestPrimaryColor.copyWith(
               fontSize: seventy
             ),
           ),
@@ -73,7 +66,7 @@ class _ContactSectionDesktopState extends State<ContactSectionDesktop> {
               Expanded(
                 child: Text(
                   ContactSectionDataset.subTitle,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                 ),
@@ -115,7 +108,7 @@ class _ContactSectionDesktopState extends State<ContactSectionDesktop> {
                   children: [
                     Text(
                       ContactSectionDataset.leaveMessage,
-                      style: styles.seventyWhiteBold.copyWith(
+                      style: AppStyles.boldestWhite.copyWith(
                           fontSize: thirty
                       ),
                     ),

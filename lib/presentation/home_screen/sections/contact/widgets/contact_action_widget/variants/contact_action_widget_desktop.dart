@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/contact/dataset/contact_action_object.dart';
 
 class ContactActionWidgetDesktop extends StatefulWidget {
@@ -22,13 +21,6 @@ class ContactActionWidgetDesktop extends StatefulWidget {
 
 class _ContactActionWidgetDesktopState extends State<ContactActionWidgetDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -82,14 +74,14 @@ class _ContactActionWidgetDesktopState extends State<ContactActionWidgetDesktop>
               children: [
                 Text(
                   widget.data.title,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                 ),
                 SizedBox(height: two,),
                 Text(
                   widget.data.value,
-                  style: styles.eighteenWhiteBold.copyWith(
+                  style: AppStyles.boldWhite.copyWith(
                     fontSize: eighteen
                   ),
                 )

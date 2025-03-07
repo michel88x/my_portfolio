@@ -1,8 +1,7 @@
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/skills/dataset/skills_section_object.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -19,13 +18,6 @@ class _SkillsSectionWidgetDesktopState extends State<SkillsSectionWidgetDesktop>
 
   bool hovered = false;
   int value = 0;
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +120,7 @@ class _SkillsSectionWidgetDesktopState extends State<SkillsSectionWidgetDesktop>
                 SizedBox(height: ten,),
                 Text(
                   widget.data.title,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                   textAlign: TextAlign.center,

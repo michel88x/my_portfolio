@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_education_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_experience_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_section_widget/variants/resume_section_widget_desktop.dart';
@@ -28,7 +27,6 @@ class ResumeSectionWidget extends StatelessWidget {
       desktop: (context) => ResumeSectionWidgetDesktop(
         icon: icon,
         title: title,
-        styles: AppStylesDesktop(),
         educationList: educationList,
         experienceList: experienceList,
       ),

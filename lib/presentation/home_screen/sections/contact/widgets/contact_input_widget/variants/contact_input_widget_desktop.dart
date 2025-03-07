@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_text_field.dart';
 
 class ContactInputWidgetDesktop extends StatefulWidget {
@@ -27,13 +26,6 @@ class ContactInputWidgetDesktop extends StatefulWidget {
 
 class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -50,7 +42,7 @@ class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
           children: [
             Text(
               "${widget.title} ",
-              style: styles.fourteenTextGrey2.copyWith(
+              style: AppStyles.normalTextGrey2.copyWith(
                 color: Colors.white,
                 fontSize: fourteen
               ),
@@ -59,7 +51,7 @@ class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
               offset: const Offset(0, -3),
               child: Text(
                 "*",
-                style: styles.fourteenTextGrey2.copyWith(
+                style: AppStyles.normalTextGrey2.copyWith(
                   color: AppColors.primaryColor,
                   fontSize: fourteen
                 ),
@@ -76,7 +68,6 @@ class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
             verticalPadding: twenty,
             horizontalPadding: twelve,
             textSize: fourteen,
-            styles: styles,
           numRows: widget.numRows,
         )
       ],

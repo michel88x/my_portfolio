@@ -4,8 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_images.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/JDirectionality.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/core/base_widgets/infinite_rotation_widget.dart';
@@ -22,13 +21,6 @@ class HomeSectionDesktop extends StatefulWidget {
 
 class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -87,7 +79,7 @@ class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
                                     ),
                                     TextSpan(
                                       text: " ${HomeSectionDataset.title1}",
-                                      style: styles.twentyWhite.copyWith(
+                                      style: AppStyles.normalWhite.copyWith(
                                         fontSize: twenty
                                       ),
                                     ),
@@ -97,21 +89,21 @@ class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
                             SizedBox(height: twenty,),
                             Text(
                               HomeSectionDataset.title2,
-                              style: styles.seventyWhiteBold.copyWith(
+                              style: AppStyles.boldestWhite.copyWith(
                                 fontSize: seventy
                               ),
                             ),
                             SizedBox(height: thirty,),
                             Text(
                               HomeSectionDataset.title3,
-                              style: styles.seventyPrimaryBold.copyWith(
+                              style: AppStyles.boldestPrimaryColor.copyWith(
                                 fontSize: seventy
                               ),
                             ),
                             SizedBox(height: thirty,),
                             Text(
                               HomeSectionDataset.title4,
-                              style: styles.sixteenTextGrey2.copyWith(
+                              style: AppStyles.normalTextGrey2.copyWith(
                                 fontSize: sixteen
                               ),
                             ),
@@ -150,7 +142,7 @@ class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
                             SizedBox(height: fourty,),
                             Text(
                               HomeSectionDataset.title5,
-                              style: styles.sixteenTextGrey2.copyWith(
+                              style: AppStyles.normalTextGrey2.copyWith(
                                 fontSize: sixteen
                               ),
                             ),

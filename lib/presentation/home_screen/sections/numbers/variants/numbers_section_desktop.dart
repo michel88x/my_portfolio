@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/numbers/dataset/numbers_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/numbers/dataset/numbers_section_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/numbers/widgets/numbers_section_widget.dart';
@@ -15,13 +13,11 @@ class NumbersSectionDesktop extends StatefulWidget {
 
 class _NumbersSectionDesktopState extends State<NumbersSectionDesktop> {
 
-  late AppStyles styles;
   late List<NumbersSectionObject> list;
 
   @override
   void initState() {
     super.initState();
-    styles = AppStylesDesktop();
     list = NumbersSectionDataset.data;
   }
   @override

@@ -5,8 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/zoom_on_hover_widget.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/blog/dataset/blog_section_object.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,13 +26,6 @@ class BlogWidgetDesktop extends StatefulWidget {
 class _BlogWidgetDesktopState extends State<BlogWidgetDesktop> {
 
   bool hovered = false;
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +161,7 @@ class _BlogWidgetDesktopState extends State<BlogWidgetDesktop> {
                                   ),
                                   child: Text(
                                     widget.data.type,
-                                    style: styles.eighteenWhiteBold.copyWith(
+                                    style: AppStyles.boldWhite.copyWith(
                                       fontSize: eighteen
                                     ),
                                   ),
@@ -185,7 +177,7 @@ class _BlogWidgetDesktopState extends State<BlogWidgetDesktop> {
                   Text(
                     widget.data.date,
                     textAlign: TextAlign.center,
-                    style: styles.fourteenTextGrey2.copyWith(
+                    style: AppStyles.normalTextGrey2.copyWith(
                       fontSize: fourteen
                     ),
                   ),
@@ -195,7 +187,7 @@ class _BlogWidgetDesktopState extends State<BlogWidgetDesktop> {
                     child: Text(
                       widget.data.title,
                       textAlign: TextAlign.center,
-                      style: styles.twentyTwoWhiteBold.copyWith(
+                      style: AppStyles.boldWhite.copyWith(
                         fontSize: twentyTwo,
                         color: hovered? AppColors.primaryColor : Colors.white
                       ),
@@ -207,7 +199,7 @@ class _BlogWidgetDesktopState extends State<BlogWidgetDesktop> {
                     child: Text(
                       widget.data.description,
                       textAlign: TextAlign.center,
-                      style: styles.fourteenTextGrey2.copyWith(
+                      style: AppStyles.normalTextGrey2.copyWith(
                           fontSize: fourteen
                       ),
                     ),

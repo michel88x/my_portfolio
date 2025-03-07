@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/dataset/offer_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/widgets/offer_section_widget.dart';
@@ -24,13 +23,6 @@ class OfferSectionDesktop extends StatefulWidget {
 
 class _OfferSectionDesktopState extends State<OfferSectionDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -50,7 +42,7 @@ class _OfferSectionDesktopState extends State<OfferSectionDesktop> {
         children: [
           Text(
             OfferSectionDataset.title1,
-            style: styles.seventyPrimaryBold.copyWith(
+            style: AppStyles.boldestPrimaryColor.copyWith(
               fontSize: seventy
             ),
           ),
@@ -60,7 +52,7 @@ class _OfferSectionDesktopState extends State<OfferSectionDesktop> {
               Expanded(
                 child: Text(
                   OfferSectionDataset.title2,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                 ),
@@ -87,7 +79,6 @@ class _OfferSectionDesktopState extends State<OfferSectionDesktop> {
             itemBuilder: (context, index){
               return OfferSectionWidget(
                   data: OfferSectionDataset.list[index],
-                  styles: styles,
                   onPressed: widget.onSectionPressed
               );
             },

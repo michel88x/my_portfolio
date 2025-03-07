@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_experience_object.dart';
 
 class ResumeExperienceWidgetDesktop extends StatefulWidget {
@@ -17,14 +16,6 @@ class ResumeExperienceWidgetDesktop extends StatefulWidget {
 class _ResumeExperienceWidgetDesktopState extends State<ResumeExperienceWidgetDesktop> {
 
   bool hovered = false;
-
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +71,14 @@ class _ResumeExperienceWidgetDesktopState extends State<ResumeExperienceWidgetDe
                 children: [
                   Text(
                     widget.data.dates,
-                    style: styles.eighteenPrimaryBold.copyWith(
+                    style: AppStyles.boldPrimaryColor.copyWith(
                         fontSize: sixteen
                     ),
                   ),
                   SizedBox(height: ten,),
                   Text(
                     widget.data.title,
-                    style: styles.twentyTwoWhiteBold.copyWith(
+                    style: AppStyles.boldWhite.copyWith(
                         fontSize: twentyTwo
                     ),
                   ),
@@ -97,14 +88,14 @@ class _ResumeExperienceWidgetDesktopState extends State<ResumeExperienceWidgetDe
                       Expanded(
                         child: Text(
                           widget.data.subTitle,
-                          style: styles.eighteenTextGrey2.copyWith(
+                          style: AppStyles.normalTextGrey2.copyWith(
                               fontSize: sixteen
                           ),
                         ),
                       ),
                       Text(
                         " ",
-                        style: styles.twentyTwoPrimaryBold.copyWith(
+                        style: AppStyles.boldPrimaryColor.copyWith(
                           fontSize: twentyTwo
                         ),
                       )

@@ -3,19 +3,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/dataset/offer_section_object.dart';
 
 class OfferSectionWidget extends StatefulWidget {
 
   final OfferSectionObject data;
-  final AppStyles styles;
   final VoidCallback onPressed;
 
   const OfferSectionWidget({
     super.key,
     required this.data,
-    required this.styles,
     required this.onPressed
   });
 
@@ -95,7 +93,7 @@ class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTick
                         flex: 2,
                         child: Text(
                           "${widget.data.number}.${widget.data.title}",
-                          style: widget.styles.sixtyWhiteBold.copyWith(fontSize: thirty),
+                          style: AppStyles.boldestWhite.copyWith(fontSize: thirty),
                         ),
                       ),
                       Expanded(
@@ -105,7 +103,7 @@ class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTick
                           builder: (textContext, textChild) {
                             return Text(
                               widget.data.text,
-                              style: widget.styles.fourteenTextGrey1.copyWith(
+                              style: AppStyles.normalTextGrey1.copyWith(
                                 color: _textColorAnimation.value,
                                 fontSize: fourteen
                               ),

@@ -3,8 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_section_dataset.dart';
 
 class ViewAllLatestWorkWidgetDesktop extends StatefulWidget {
@@ -21,13 +20,6 @@ class ViewAllLatestWorkWidgetDesktop extends StatefulWidget {
 
 class _ViewAllLatestWorkWidgetDesktopState extends State<ViewAllLatestWorkWidgetDesktop> {
   bool expanded = false;
-  late AppStyles appStyles;
-
-  @override
-  void initState() {
-    super.initState();
-    appStyles = AppStylesDesktop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +94,7 @@ class _ViewAllLatestWorkWidgetDesktopState extends State<ViewAllLatestWorkWidget
                       children: [
                         Text(
                           LatestWorkSectionDataset.viewAll,
-                          style: appStyles.sixteenWhite.copyWith(
+                          style: AppStyles.normalWhite.copyWith(
                             fontSize: sixteen
                           ),
                         ),

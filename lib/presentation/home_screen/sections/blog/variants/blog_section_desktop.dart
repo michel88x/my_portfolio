@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/blog/dataset/blog_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/blog/widgets/blog_widget/view/blog_widget.dart';
 
@@ -14,13 +13,6 @@ class BlogSectionDesktop extends StatefulWidget {
 
 class _BlogSectionDesktopState extends State<BlogSectionDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -39,7 +31,7 @@ class _BlogSectionDesktopState extends State<BlogSectionDesktop> {
         children: [
           Text(
             BlogSectionDataset.title,
-            style: styles.seventyPrimaryBold.copyWith(
+            style: AppStyles.boldestPrimaryColor.copyWith(
               fontSize: seventy
             ),
           ),
@@ -49,7 +41,7 @@ class _BlogSectionDesktopState extends State<BlogSectionDesktop> {
               Expanded(
                 child: Text(
                   BlogSectionDataset.subtitle,
-                  style: styles.eighteenTextGrey2.copyWith(
+                  style: AppStyles.normalTextGrey2.copyWith(
                     fontSize: eighteen
                   ),
                 ),

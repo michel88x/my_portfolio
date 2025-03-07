@@ -1,20 +1,20 @@
 import 'dart:math';
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_object.dart';
 
 class LatestWorkWidgetDesktop extends StatefulWidget {
   final LatestWorkObject data;
-  final AppStyles appStyles;
   final Function(String) onPressed;
 
   const LatestWorkWidgetDesktop(
       {super.key,
       required this.data,
-      required this.appStyles,
       required this.onPressed});
 
   @override
@@ -58,6 +58,7 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
     double twentyFive = width * 0.01653439; //25
     double thirty = width * 0.02; //30
     double fourty = width * 0.02645503; //40
+    double fourHunderdFifty = width * 0.2976190476; //450
     return InkWell(
       onHover: (hovered) {
         if (hovered) {
@@ -83,11 +84,19 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(fifteen),
-              child: Image.asset(
-                widget.data.image,
+              child: CachedNetworkImage(
+                imageUrl: widget.data.image,
                 width: double.infinity,
-                //height: 500.0,
                 fit: BoxFit.cover,
+                placeholder: (context, s){
+                  return SizedBox(
+                    width: double.infinity,
+                    height: fourHunderdFifty,
+                    child: const Center(
+                      child: CupertinoActivityIndicator(color: AppColors.primaryColor,),
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(
@@ -95,8 +104,7 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
             ),
             Text(
               widget.data.title,
-              style:
-                  widget.appStyles.fourtyWhiteBold.copyWith(fontSize: thirty),
+              style: AppStyles.boldestWhite.copyWith(fontSize: thirty),
             ),
             SizedBox(
               height: thirty,
@@ -106,7 +114,7 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
                 Expanded(
                   child: Text(
                     widget.data.subtitle,
-                    style: widget.appStyles.fourteenTextGrey1
+                    style: AppStyles.normalTextGrey1
                         .copyWith(fontSize: fifteen),
                   ),
                 ),

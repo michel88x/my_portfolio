@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles.dart';
-import 'package:my_new_portfolio/core/app/app_styles/app_styles_desktop.dart';
+import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/widgets/latest_work_widget/view/latest_work_widget.dart';
@@ -25,13 +24,6 @@ class LatestWorkDesktop extends StatefulWidget {
 
 class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
 
-  late AppStyles styles;
-
-  @override
-  void initState() {
-    super.initState();
-    styles = AppStylesDesktop();
-  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -53,7 +45,7 @@ class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
           children: [
             Text(
               LatestWorkSectionDataset.title1,
-              style: styles.seventyPrimaryBold.copyWith(
+              style: AppStyles.boldestPrimaryColor.copyWith(
                 fontSize: seventy
               ),
             ),
@@ -63,7 +55,7 @@ class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
                 Expanded(
                   child: Text(
                     LatestWorkSectionDataset.title2,
-                    style: styles.eighteenTextGrey2.copyWith(
+                    style: AppStyles.normalTextGrey2.copyWith(
                       fontSize: eighteen
                     ),
                   ),
@@ -97,7 +89,6 @@ class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
                 itemBuilder: (context, index){
                   return LatestWorkWidget(
                       data: LatestWorkSectionDataset.list[index],
-                      appStyles: styles,
                       onPressed: widget.onItemPressed
                   );
                 }
