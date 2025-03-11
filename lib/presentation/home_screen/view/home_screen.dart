@@ -9,8 +9,10 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/numbers/view/
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/view/offer_section.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/view/resume_section.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/skills/view/skills_section.dart';
+import 'package:my_new_portfolio/presentation/home_screen/widgets/app_drawer/view/app_drawer.dart';
 import 'package:my_new_portfolio/presentation/home_screen/widgets/top_bar/top_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../sections/companies/view/companies_section.dart';
 
@@ -33,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     GlobalKey(debugLabel: "5"),
     GlobalKey(debugLabel: "6"),
   ];
+  bool showFloatingActionButton = false;
 
   @override
   void didChangeDependencies() {
@@ -44,20 +47,36 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.secondaryColor,
+      drawer: AppDrawer(
+        onItemSelected: (i){
+          Scrollable.ensureVisible(keys[i].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+        },
+      ),
+      floatingActionButton: showFloatingActionButton? FloatingActionButton(
+        backgroundColor: AppColors.primaryColor,
+        heroTag: "GoToTop",
+        child: const Icon(Icons.arrow_upward, color: Colors.white,),
+        onPressed: (){
+          Scrollable.ensureVisible(keys[0].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+        },
+      ) : null,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TopBar(
-            onSectionPressed: (s){
-              provider.changeTab(s);
-              Scrollable.ensureVisible(keys[s].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
-            },
-            onLeftDrawerButtonPressed: (){
-
-            },
-            onFacebookPressed: (){},
-            onLinkedInPressed: (){},
-            onGithubPressed: (){},
+          Builder(
+            builder: (context) {
+              return TopBar(
+                onSectionPressed: (s){
+                  Scrollable.ensureVisible(keys[s].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+                },
+                onLeftDrawerButtonPressed: (){
+                  Scaffold.of(context).openDrawer();
+                },
+                onFacebookPressed: (){},
+                onLinkedInPressed: (){},
+                onGithubPressed: (){},
+              );
+            }
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -65,23 +84,44 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  HomeSection(key: keys[0],),
+                  VisibilityDetector(
+                      key: const Key("HomeSection"),
+                      onVisibilityChanged: (v){
+                        if(v.visibleFraction == 0.0){
+                          setState(() {
+                            showFloatingActionButton = true;
+                          });
+                        }else{
+                          setState(() {
+                            showFloatingActionButton = false;
+                          });
+                        }
+                      },
+                      child: HomeSection(key: keys[0],)),
                   const NumbersSection(),
                   OfferSection(
+                    key: keys[1],
                     onQuotePressed: (){},
                     onSectionPressed: (){},
                   ),
                   LatestWorkSection(
+                    key: keys[2],
                     onViewAllProjectsPressed: (){},
                     onItemPressed: (url){},
                   ),
-                  ResumeSection(onTouchPressed: (){}),
-                  const SkillsSection(),
+                  ResumeSection(
+                    key: keys[3],
+                    onTouchPressed: (){},
+                  ),
+                  SkillsSection(
+                    key: keys[4],
+                  ),
                   const CompaniesSection(),
                   const BlogSection(),
                   ContactSection(
-                      onMessageSent: (contactDetails){},
-                      onActionPressed: (actionType, value){},
+                    key: keys[5],
+                    onMessageSent: (contactDetails){},
+                    onActionPressed: (actionType, value){},
                   )
                 ],
               ),

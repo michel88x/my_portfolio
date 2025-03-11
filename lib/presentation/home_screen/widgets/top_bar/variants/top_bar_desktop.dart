@@ -220,16 +220,19 @@ class _TopBarDesktopState extends State<TopBarDesktop> {
     required bool isSelected
   }){
     if(isSelected){
-      return Container(
-        width: containerWidth,
-        height: containerHeight,
-        alignment: Alignment.center,
-        child: Text(
-          title,
-          style: TextStyle(
-              fontSize: titleFontSize,
-              fontWeight: FontWeight.normal,
-              color: Colors.white
+      return InkWell(
+        onTap: onPressed,
+        child: Container(
+          width: containerWidth,
+          height: containerHeight,
+          alignment: Alignment.center,
+          child: Text(
+            title,
+            style: TextStyle(
+                fontSize: titleFontSize,
+                fontWeight: FontWeight.normal,
+                color: Colors.white
+            ),
           ),
         ),
       );
