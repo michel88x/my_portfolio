@@ -1,32 +1,16 @@
-name: Deploy Flutter Web to GitHub Pages
+name: Gh-Pages
 
 on:
   push:
-    branches:
-      - main  # Change this if you're using a different branch
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v2 # Only works with v2
+      - uses: subosito/flutter-action@v1
+      - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          flutter-version: '3.x'  # Use your Flutter version
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build Flutter Web
-        run: flutter build web --base-href="/<repo-name>/"
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: main
-          folder: build/web
-          clean: true
+          baseHref: /Responsive-Blog-Theme-using-Flutter/
