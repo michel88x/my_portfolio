@@ -21,7 +21,7 @@ class LatestWorkWidget extends StatefulWidget {
   State<LatestWorkWidget> createState() => _LatestWorkWidgetState();
 }
 
-class _LatestWorkWidgetState extends State<LatestWorkWidget> with SingleTickerProviderStateMixin{
+class _LatestWorkWidgetState extends State<LatestWorkWidget>{
 
   @override
   Widget build(BuildContext context) {

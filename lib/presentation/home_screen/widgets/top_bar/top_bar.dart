@@ -31,8 +31,20 @@ class TopBar extends StatelessWidget {
         onLinkedInPressed: onLinkedInPressed,
         onGithubPressed: onGithubPressed,
       ),
-      tablet: (context) => const TopBarTablet(),
-      mobile: (context) => const TopBarMobile(),
+      tablet: (context) => TopBarTablet(
+        onSectionPressed: onSectionPressed,
+        onLeftDrawerButtonPressed: onLeftDrawerButtonPressed,
+        onFacebookPressed: onFacebookPressed,
+        onLinkedInPressed: onLinkedInPressed,
+        onGithubPressed: onGithubPressed,
+      ),
+      mobile: (context) => TopBarMobile(
+        onSectionPressed: onSectionPressed,
+        onLeftDrawerButtonPressed: onLeftDrawerButtonPressed,
+        onFacebookPressed: onFacebookPressed,
+        onLinkedInPressed: onLinkedInPressed,
+        onGithubPressed: onGithubPressed,
+      ),
     );
   }
 }

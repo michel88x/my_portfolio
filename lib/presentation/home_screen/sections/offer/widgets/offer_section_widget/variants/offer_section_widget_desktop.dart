@@ -6,22 +6,23 @@ import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/dataset/offer_section_object.dart';
 
-class OfferSectionWidget extends StatefulWidget {
+class OfferSectionWidgetDesktop extends StatefulWidget {
 
   final OfferSectionObject data;
   final VoidCallback onPressed;
 
-  const OfferSectionWidget({
+  const OfferSectionWidgetDesktop({
     super.key,
     required this.data,
     required this.onPressed
   });
 
   @override
-  State<OfferSectionWidget> createState() => _OfferSectionWidgetState();
+  State<OfferSectionWidgetDesktop> createState() => _OfferSectionWidgetDesktopState();
 }
 
-class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTickerProviderStateMixin{
+class _OfferSectionWidgetDesktopState extends State<OfferSectionWidgetDesktop> with SingleTickerProviderStateMixin{
+
   late AnimationController _controller;
   late Animation<Color?> _containerColorAnimation;
   late Animation<Color?> _circleBorderColorAnimation;
@@ -52,7 +53,6 @@ class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTick
       end: - (pi / 4),
     ).animate(_controller);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,59 +99,59 @@ class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTick
                       Expanded(
                         flex: 2,
                         child: AnimatedBuilder(
-                          animation: _textColorAnimation,
-                          builder: (textContext, textChild) {
-                            return Text(
-                              widget.data.text,
-                              style: AppStyles.normalTextGrey1.copyWith(
-                                color: _textColorAnimation.value,
-                                fontSize: fourteen
-                              ),
-                            );
-                          }
+                            animation: _textColorAnimation,
+                            builder: (textContext, textChild) {
+                              return Text(
+                                widget.data.text,
+                                style: AppStyles.normalTextGrey1.copyWith(
+                                    color: _textColorAnimation.value,
+                                    fontSize: fourteen
+                                ),
+                              );
+                            }
                         ),
                       ),
                       Expanded(
                         flex: 1,
                         child: Container(
-                          width: double.infinity,
-                          child: Row(
-                            children: [
-                              const Spacer(),
-                              AnimatedBuilder(
-                                  animation: _circleBorderColorAnimation,
-                                  builder: (circleBorderContext, circleBorderChild){
-                                    return Container(
-                                      width: fourty,
-                                      height: fourty,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: _circleBorderColorAnimation.value ?? AppColors.borderGreyColor,
-                                          width: 1.0
-                                        )
-                                      ),
-                                      child: Center(
-                                        child: AnimatedBuilder(
-                                          animation: _circleRotationAnimation,
-                                          builder: (circleRotationContext, circleRotationChild){
-                                            return Transform.rotate(
-                                              angle: _circleRotationAnimation.value,
-                                              child: Image.asset(
-                                                AppIcons.arrowRight,
-                                                color: Colors.white,
-                                                width: twentyFive,
-                                                height: twentyFive,
-                                              ),
-                                            );
-                                          },
+                            width: double.infinity,
+                            child: Row(
+                              children: [
+                                const Spacer(),
+                                AnimatedBuilder(
+                                    animation: _circleBorderColorAnimation,
+                                    builder: (circleBorderContext, circleBorderChild){
+                                      return Container(
+                                        width: fourty,
+                                        height: fourty,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                                color: _circleBorderColorAnimation.value ?? AppColors.borderGreyColor,
+                                                width: 1.0
+                                            )
                                         ),
-                                      ),
-                                    );
-                                  }
-                              )
-                            ],
-                          )
+                                        child: Center(
+                                          child: AnimatedBuilder(
+                                            animation: _circleRotationAnimation,
+                                            builder: (circleRotationContext, circleRotationChild){
+                                              return Transform.rotate(
+                                                angle: _circleRotationAnimation.value,
+                                                child: Image.asset(
+                                                  AppIcons.arrowRight,
+                                                  color: Colors.white,
+                                                  width: twentyFive,
+                                                  height: twentyFive,
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                )
+                              ],
+                            )
                         ),
                       )
                     ],
@@ -161,5 +161,11 @@ class _OfferSectionWidgetState extends State<OfferSectionWidget> with SingleTick
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }

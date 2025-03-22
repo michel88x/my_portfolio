@@ -21,8 +21,14 @@ class OfferSection extends StatelessWidget {
         onQuotePressed: onQuotePressed,
         onSectionPressed: onSectionPressed,
       ),
-      tablet: (context) => const OfferSectionTablet(),
-      mobile: (context) => const OfferSectionMobile(),
+      tablet: (context) => OfferSectionTablet(
+        onQuotePressed: onQuotePressed,
+        onSectionPressed: onSectionPressed,
+      ),
+      mobile: (context) => OfferSectionMobile(
+        onQuotePressed: onQuotePressed,
+        onSectionPressed: onSectionPressed,
+      ),
     );
   }
 }

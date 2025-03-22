@@ -21,8 +21,14 @@ class LatestWorkSection extends StatelessWidget {
         onViewAllProjectsPressed: onViewAllProjectsPressed,
         onItemPressed: onItemPressed,
       ),
-      tablet: (context) => const LatestWorkTablet(),
-      mobile: (context) => const LatestWorkMobile(),
+      tablet: (context) => LatestWorkTablet(
+        onViewAllProjectsPressed: onViewAllProjectsPressed,
+        onItemPressed: onItemPressed,
+      ),
+      mobile: (context) => LatestWorkMobile(
+        onViewAllProjectsPressed: onViewAllProjectsPressed,
+        onItemPressed: onItemPressed,
+      ),
     );
   }
 }

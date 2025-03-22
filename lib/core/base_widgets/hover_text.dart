@@ -80,4 +80,10 @@ class _HoverTextState extends State<HoverText> with SingleTickerProviderStateMix
       ),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 }

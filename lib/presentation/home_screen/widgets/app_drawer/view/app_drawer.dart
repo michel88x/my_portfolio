@@ -14,8 +14,8 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       desktop: (context) => AppDrawerDesktop(onItemSelected: onItemSelected,),
-      tablet: (context) => AppDrawerTablet(),
-      mobile: (context) => AppDrawerMobile(),
+      tablet: (context) => AppDrawerTablet(onItemSelected: onItemSelected,),
+      mobile: (context) => AppDrawerMobile(onItemSelected: onItemSelected,),
     );
   }
 }

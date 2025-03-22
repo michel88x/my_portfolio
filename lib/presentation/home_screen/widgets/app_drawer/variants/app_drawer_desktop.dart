@@ -18,10 +18,14 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    double fourteen = width * 0.009259259259; //14
+    double sixteen = width * 0.01058201058; //16
+    double thirty = width * 0.01984126984; //30
+    double fifty = width * 0.03306878307; //50
     return Container(
       width: width / 5,
       height: height,
-      padding: EdgeInsets.all(30.0),
+      padding: EdgeInsets.all(thirty),
       color: AppColors.primaryBackgroundColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,33 +36,33 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
               IconButton(onPressed: (){
                 Scaffold.of(context).closeDrawer();
               },
-                icon: Icon(
+                icon: const Icon(
                 Icons.close,
                     color: AppColors.primaryColor,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: thirty,),
           Text(
             "Go to",
             style: AppStyles.boldestWhite.copyWith(
-              fontSize: 50
+              fontSize: fifty
             ),
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: thirty,),
           Container(
             width: double.infinity,
             height: 1.5,
             color: AppColors.primaryColor,
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: thirty,),
           _item(
             title: "Home",
-            containerHeight: 30.0,
-            titleFontSize: 16.0,
-            hoverTextHeight: 30.0,
-            hoverTextFontSize: 14.0,
+            containerHeight: thirty,
+            titleFontSize: sixteen,
+            hoverTextHeight: thirty,
+            hoverTextFontSize: fourteen,
             isSelected: true,
             onPressed: (){
               Scaffold.of(context).closeDrawer();
@@ -67,10 +71,10 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
           ),
           _item(
               title: "Serives",
-              containerHeight: 30.0,
-              titleFontSize: 16.0,
-              hoverTextHeight: 30.0,
-              hoverTextFontSize: 14.0,
+              containerHeight: thirty,
+              titleFontSize: sixteen,
+              hoverTextHeight: thirty,
+              hoverTextFontSize: fourteen,
               isSelected: false,
               onPressed: (){
                 Scaffold.of(context).closeDrawer();
@@ -79,10 +83,10 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
           ),
           _item(
               title: "Work",
-              containerHeight: 30.0,
-              titleFontSize: 16.0,
-              hoverTextHeight: 30.0,
-              hoverTextFontSize: 14.0,
+              containerHeight: thirty,
+              titleFontSize: sixteen,
+              hoverTextHeight: thirty,
+              hoverTextFontSize: fourteen,
               isSelected: false,
               onPressed: (){
                 Scaffold.of(context).closeDrawer();
@@ -91,10 +95,10 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
           ),
           _item(
               title: "Resume",
-              containerHeight: 30.0,
-              titleFontSize: 16.0,
-              hoverTextHeight: 30.0,
-              hoverTextFontSize: 14.0,
+              containerHeight: thirty,
+              titleFontSize: sixteen,
+              hoverTextHeight: thirty,
+              hoverTextFontSize: fourteen,
               isSelected: false,
               onPressed: (){
                 Scaffold.of(context).closeDrawer();
@@ -103,10 +107,10 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
           ),
           _item(
               title: "Skills",
-              containerHeight: 30.0,
-              titleFontSize: 16.0,
-              hoverTextHeight: 30.0,
-              hoverTextFontSize: 14.0,
+              containerHeight: thirty,
+              titleFontSize: sixteen,
+              hoverTextHeight: thirty,
+              hoverTextFontSize: fourteen,
               isSelected: false,
               onPressed: (){
                 Scaffold.of(context).closeDrawer();
@@ -115,10 +119,10 @@ class _AppDrawerDesktopState extends State<AppDrawerDesktop> {
           ),
           _item(
               title: "Contact",
-              containerHeight: 30.0,
-              titleFontSize: 16.0,
-              hoverTextHeight: 30.0,
-              hoverTextFontSize: 14.0,
+              containerHeight: thirty,
+              titleFontSize: sixteen,
+              hoverTextHeight: thirty,
+              hoverTextFontSize: fourteen,
               isSelected: false,
               onPressed: (){
                 Scaffold.of(context).closeDrawer();

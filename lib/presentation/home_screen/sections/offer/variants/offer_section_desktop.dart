@@ -4,7 +4,7 @@ import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/offer/dataset/offer_section_dataset.dart';
-import 'package:my_new_portfolio/presentation/home_screen/sections/offer/widgets/offer_section_widget.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/offer/widgets/offer_section_widget/view/offer_section_widget.dart';
 
 class OfferSectionDesktop extends StatefulWidget {
 

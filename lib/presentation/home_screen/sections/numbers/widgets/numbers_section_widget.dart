@@ -44,56 +44,52 @@ class _NumbersSectionWidgetState extends State<NumbersSectionWidget> {
           });
         }
       },
-      child: SizedBox(
-        width: width / 4,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "+",
-              style: TextStyle(
-                fontSize: widget.plusFontSize,
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.bold
-              ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "+",
+            style: TextStyle(
+              fontSize: widget.plusFontSize,
+              color: AppColors.primaryColor,
+              fontWeight: FontWeight.bold
             ),
-            SizedBox(width: widget.plusPadding,),
-            AnimatedFlipCounter(
-              duration: const Duration(milliseconds: 1500),
-              value: value,
-              textStyle: TextStyle(
-                  fontSize: widget.numberFontSize,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  height: 0.9
-              ),
+          ),
+          SizedBox(width: widget.plusPadding,),
+          AnimatedFlipCounter(
+            duration: const Duration(milliseconds: 1500),
+            value: value,
+            textStyle: TextStyle(
+                fontSize: widget.numberFontSize,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                height: 0.9
             ),
-            SizedBox(width: widget.numberPadding,),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.data.firstTitle,
-                  style: TextStyle(
+          ),
+          SizedBox(width: widget.numberPadding,),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.data.firstTitle,
+                style: TextStyle(
+                  fontSize: widget.titlesFontSize,
+                  fontWeight: FontWeight.normal,
+                  color: AppColors.textGrey2
+                ),
+              ),
+              Text(
+                widget.data.secondTitle,
+                style: TextStyle(
                     fontSize: widget.titlesFontSize,
                     fontWeight: FontWeight.normal,
-                    color: AppColors.textGrey2
-                  ),
+                    color: AppColors.textGrey1
                 ),
-                Text(
-                  widget.data.secondTitle,
-                  style: TextStyle(
-                      fontSize: widget.titlesFontSize,
-                      fontWeight: FontWeight.normal,
-                      color: AppColors.textGrey1
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
