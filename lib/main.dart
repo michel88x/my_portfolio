@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             selectionColor: AppColors.primaryColor,
             selectWordOnDoubleTap: true,
             child: MaterialApp(
-              title: 'Michel Ibrahim',
+              title: 'Michel Ibrahimm',
               debugShowCheckedModeBanner: false,
               theme: ThemeData.light(useMaterial3: true).copyWith(
                 primaryColor: AppColors.primaryColor,
