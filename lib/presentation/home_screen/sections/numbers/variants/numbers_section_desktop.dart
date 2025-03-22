@@ -30,10 +30,11 @@ class _NumbersSectionDesktopState extends State<NumbersSectionDesktop> {
     double eighty = width * 0.05291005291; //80
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: eighty),
+      padding: EdgeInsets.all(eighty),
       color: AppColors.secondaryColor,
-      child: Wrap(
-        direction: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // direction: Axis.horizontal,
         children: list.map((element) => NumbersSectionWidget(
             data: element,
             plusFontSize: fifty,

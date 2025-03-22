@@ -31,10 +31,10 @@ class _NumbersSectionTabletState extends State<NumbersSectionTablet> {
     double eighty = width * 0.06322444679; //60
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: eighty),
+      padding: EdgeInsets.all(eighty),
       color: AppColors.secondaryColor,
-      child: Wrap(
-        direction: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: list.map((element) => NumbersSectionWidget(
           data: element,
           plusFontSize: fifty,
