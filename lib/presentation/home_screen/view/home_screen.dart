@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColors.secondaryColor,
       drawer: AppDrawer(
         onItemSelected: (i){
-          Scrollable.ensureVisible(keys[i].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+          Scrollable.ensureVisible(keys[i].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
         },
       ),
       floatingActionButton: showFloatingActionButton? FloatingActionButton(
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
         heroTag: "GoToTop",
         child: const Icon(Icons.arrow_upward, color: Colors.white,),
         onPressed: (){
-          Scrollable.ensureVisible(keys[0].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+          Scrollable.ensureVisible(keys[0].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
         },
       ) : null,
       body: Column(
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
             builder: (context) {
               return TopBar(
                 onSectionPressed: (s){
-                  Scrollable.ensureVisible(keys[s].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.easeInOutBack);
+                  Scrollable.ensureVisible(keys[s].currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
                 },
                 onLeftDrawerButtonPressed: (){
                   Scaffold.of(context).openDrawer();
