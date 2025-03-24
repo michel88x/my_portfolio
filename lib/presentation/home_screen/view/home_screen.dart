@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
+import 'package:my_new_portfolio/core/utils/links.dart';
 import 'package:my_new_portfolio/presentation/home_screen/providers/home_provider.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/blog/view/blog_section.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/contact/enums/contact_action_type.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/contact/view/contact_section.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/home/view/home_section.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/view/latest_work_section.dart';
@@ -12,6 +14,7 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/skills/view/s
 import 'package:my_new_portfolio/presentation/home_screen/widgets/app_drawer/view/app_drawer.dart';
 import 'package:my_new_portfolio/presentation/home_screen/widgets/top_bar/top_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../sections/companies/view/companies_section.dart';
@@ -72,9 +75,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 onLeftDrawerButtonPressed: (){
                   Scaffold.of(context).openDrawer();
                 },
-                onFacebookPressed: (){},
-                onLinkedInPressed: (){},
-                onGithubPressed: (){},
+                onFacebookPressed: (){
+                  launchUrl(Uri.parse(Links.facebook));
+                },
+                onLinkedInPressed: (){
+                  launchUrl(Uri.parse(Links.linkedIn));
+                },
+                onGithubPressed: (){
+                  launchUrl(Uri.parse(Links.github));
+                },
               );
             }
           ),
@@ -121,7 +130,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   ContactSection(
                     key: keys[5],
                     onMessageSent: (contactDetails){},
-                    onActionPressed: (actionType, value){},
+                    onActionPressed: (actionType, value){
+                      if(actionType == ContactActionType.PHONE){
+                        launchUrl(Uri.parse("tel:${value.replaceFirst("+", "").replaceAll("-", "")}"));
+                      }
+                      if(actionType == ContactActionType.EMAIL){
+                        launchUrl(Uri.parse("mailto:$value"));
+                      }
+                      if(actionType == ContactActionType.WHATSAPP){
+                        launchUrl(Uri.parse("https://wa.me/${value.replaceAll("-", "")}"));
+                      }
+                      if(actionType == ContactActionType.TELEGRAM){
+                        launchUrl(Uri.parse("https://t.me/${value.replaceAll("-", "")}"));
+                      }
+                    },
                   )
                 ],
               ),

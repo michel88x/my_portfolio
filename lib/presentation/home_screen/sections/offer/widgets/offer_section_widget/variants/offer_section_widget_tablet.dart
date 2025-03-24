@@ -58,7 +58,7 @@ class _OfferSectionWidgetTabletState extends State<OfferSectionWidgetTablet> wit
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double twenty = width * 0.0105374078; //10
-    double fourteen = width * 0.01369863014; //13
+    double fourteen = width * 0.0158061117; //15
     double twentyFive = width * 0.0210748156; //20
     double fourty = width * 0.03161222339; //30
     return Column(

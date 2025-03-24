@@ -27,7 +27,7 @@ class ContactSectionDataset {
     ContactActionObject(
       icon: "${AppImages.onlineImages}/telegram.png",
       title: "Telegram",
-      value: "+964-751-747-3109",
+      value: "+963-993-112-880",
         type: ContactActionType.TELEGRAM
     ),
   ];

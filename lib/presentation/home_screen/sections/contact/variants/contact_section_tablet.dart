@@ -39,7 +39,7 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
     double width = MediaQuery.of(context).size.width;
     double fifteen = width * 0.0158061117; //15
     double seventeen = width * 0.0158061117; //15
-    double eighteen = width * 0.01369863014; //13
+    double eighteen = width * 0.01685985248; //13
     double twenty = width * 0.0210748156; //20
     double twentyFive = width * 0.02634351949; //25
     double thirty = width * 0.02634351949; //25

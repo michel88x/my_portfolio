@@ -43,14 +43,15 @@ class _TopBarTabletState extends State<TopBarTablet> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width; //949
     double ten = width * 0.0105374078; //10
-    double sixteen = width * 0.01369863014; //16
+    double sixteen = width * 0.01896733404; //18
     double twenty = width * 0.01896733404; //20
     double thirty = width * 0.02634351949; //30
     double fourty = width * 0.03161222339; //40
-    double eighty = width * 0.06322444679; //80
+    double sixty = width * 0.06322444679; //60
+    double eighty = width * 0.08429926238; //80
     return Container(
       width: double.infinity,
-      height: eighty,
+      height: sixty,
       color: AppColors.secondaryColor,
       child: Stack(
         children: [
@@ -59,8 +60,8 @@ class _TopBarTabletState extends State<TopBarTablet> {
               InkWell(
                 onTap: widget.onLeftDrawerButtonPressed,
                 child: Container(
-                  width: eighty,
-                  height: eighty,
+                  width: sixty,
+                  height: sixty,
                   color: AppColors.secondaryColorLight,
                   child: Center(
                     child: Icon(
@@ -132,10 +133,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Home",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(0);
@@ -144,10 +145,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Services",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(1);
@@ -156,10 +157,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Work",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(2);
@@ -168,10 +169,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Resume",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(3);
@@ -180,10 +181,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Skills",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(4);
@@ -192,10 +193,10 @@ class _TopBarTabletState extends State<TopBarTablet> {
               _item(
                   title: "Contact",
                   containerWidth: eighty,
-                  containerHeight: eighty,
+                  containerHeight: sixty,
                   titleFontSize: sixteen,
                   hoverTextWidth: eighty,
-                  hoverTextHeight: eighty,
+                  hoverTextHeight: sixty,
                   hoverTextFontSize: sixteen,
                   onPressed: (){
                     widget.onSectionPressed(5);

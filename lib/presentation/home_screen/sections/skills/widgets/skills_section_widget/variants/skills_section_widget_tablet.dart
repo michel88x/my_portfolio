@@ -91,6 +91,7 @@ class _SkillsSectionWidgetTabletState extends State<SkillsSectionWidgetTablet> {
                     widget.data.icon,
                     width: seventy,
                     height: seventy,
+                    color: widget.data.icon.contains("apple")? Colors.white : null,
                   ),
                 ),
                 const Spacer(),

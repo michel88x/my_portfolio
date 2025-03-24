@@ -20,10 +20,10 @@ class _AppDrawerTabletState extends State<AppDrawerTablet> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    double fourteen = width * 0.01475237092; //14
-    double sixteen = width * 0.01685985248; //16
+    double fourteen = width * 0.01896733404; //18
+    double sixteen = width * 0.0210748156; //20
     double twentyFive = width * 0.02634351949; //25
-    double thirty = width * 0.03161222339; //30
+    double thirty = width * 0.05268703899; //50
     double fifty = width * 0.04214963119; //40
     return Container(
       width: width / 4,

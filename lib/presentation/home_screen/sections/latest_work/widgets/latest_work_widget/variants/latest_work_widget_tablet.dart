@@ -53,7 +53,7 @@ class _LatestWorkWidgetTabletState extends State<LatestWorkWidgetTablet> with Si
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double fifteen = width * 0.01369863014; //13
+    double fifteen = width * 0.01685985248; //13
     double twenty = width * 0.0158061117; //15
     double twentyFive = width * 0.0210748156; //20
     double thirty = width * 0.0210748156; //20

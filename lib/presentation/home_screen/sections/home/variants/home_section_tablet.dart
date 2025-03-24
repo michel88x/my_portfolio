@@ -25,13 +25,13 @@ class _HomeSectionTabletState extends State<HomeSectionTablet> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     double ten = width * 0.0105374078; //10
-    double sixteen = width * 0.01369863014; //13
+    double sixteen = width * 0.0158061117; //15
     double seventeen = width * 0.01475237092; //14
     double twenty = width * 0.0158061117; //15
     double twentyThree = width * 0.02423603793; //23
-    double twentyFive = width * 0.02634351949; //25
+    double twentyFive = width * 0.03161222339; //30
     double fourty = width * 0.03161222339; //30
-    double fifty = width * 0.04214963119; //40
+    double fifty = width * 0.05268703899; //50
     double seventy = width * 0.05268703899; //50
     double eighty = width * 0.06322444679; //60
     return SizedBox(

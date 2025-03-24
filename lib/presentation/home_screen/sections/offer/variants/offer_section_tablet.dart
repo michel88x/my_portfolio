@@ -25,7 +25,7 @@ class _OfferSectionTabletState extends State<OfferSectionTablet> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double eighteen = width * 0.01369863014; //13
+    double eighteen = width * 0.01685985248; //16
     double seventeen = width * 0.0158061117; //15
     double thirty = width * 0.02634351949; //25
     double seventy = width * 0.05268703899; //50

@@ -1,6 +1,6 @@
 class AppImages{
   static const String images = "assets/images";
-  static const String onlineImages = "https://Misheal88x.github.io/test_event";
+  static const String onlineImages = "https://Misheal88x.github.io/files";
 
   static const String grid = "$images/grid3.png";
   static const String latestWork1 = "$onlineImages/latest_work_1.png";

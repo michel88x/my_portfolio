@@ -29,7 +29,7 @@ class _CompaniesSectionTabletState extends State<CompaniesSectionTablet> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double eighteen = width * 0.01369863014; //13
+    double eighteen = width * 0.01685985248; //13
     double twenty = width * 0.0158061117; //15
     double fourty = width * 0.03161222339; //30
     double fifty = width * 0.05268703899; //50
