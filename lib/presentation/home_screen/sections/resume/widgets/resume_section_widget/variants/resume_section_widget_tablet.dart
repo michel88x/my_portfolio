@@ -4,6 +4,7 @@ import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_education_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_experience_object.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_education_widget/view/resume_education_widget.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_experience_widget/view/resume_experience_widget.dart';
 
@@ -13,13 +14,15 @@ class ResumeSectionWidgetTablet extends StatelessWidget {
   final String title;
   final List<ResumeEducationObject>? educationList;
   final List<ResumeExperienceObject>? experienceList;
+  final bool withBottomPadding;
 
   const ResumeSectionWidgetTablet({
     super.key,
     required this.icon,
     required this.title,
     this.educationList,
-    this.experienceList
+    this.experienceList,
+    this.withBottomPadding = false
   });
 
   @override
@@ -28,6 +31,7 @@ class ResumeSectionWidgetTablet extends StatelessWidget {
     double five = width * 0.005268703899; //5
     double ten = width * 0.0105374078; //10
     double fifteen = width * 0.01264488936; //12
+    double twentyTwo = width * 0.02318229715; //22
     double fourty = width * 0.03161222339; //30
     return Container(
       width: double.infinity,
@@ -45,7 +49,7 @@ class ResumeSectionWidgetTablet extends StatelessWidget {
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.all(1.0),
-        padding: EdgeInsets.all(fourty),
+        padding: EdgeInsets.only(left: fourty, right: fourty, top: fourty, bottom: withBottomPadding? fourty + twentyTwo : fourty),
         decoration: BoxDecoration(
           color: AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(fifteen),
@@ -107,10 +111,19 @@ class ResumeSectionWidgetTablet extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: educationList != null? educationList!.length : experienceList!.length,
+              itemCount: ResumeSectionDataset.experienceList.length,
               itemBuilder: (context, index){
                 if(educationList != null){
-                  return ResumeEducationWidget(data: educationList![index]);
+                  return ResumeEducationWidget(data:
+                  index >= educationList!.length?
+                  ResumeEducationObject(
+                      dates: "",
+                      title: "",
+                      subtitle: "",
+                      degree: 0,
+                      overall: 0
+                  ) :
+                  educationList![index]);
                 }
                 return ResumeExperienceWidget(data: experienceList![index]);
               },

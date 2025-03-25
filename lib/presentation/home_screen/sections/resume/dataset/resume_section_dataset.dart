@@ -10,55 +10,71 @@ class ResumeSectionDataset {
 
   static List<ResumeEducationObject> educationList = <ResumeEducationObject>[
     ResumeEducationObject(
-      dates: "2018-2019",
-      title: "Certification in UX Design",
-      subtitle: "University of Stanford",
-      degree: 4.9,
-      overall: 5
+        dates: "2019-2023",
+        title: "Master's Degree - Web Sciences",
+        subtitle: "Syrian Virtual University",
+        degree: 75,
+        overall: 100
     ),
     ResumeEducationObject(
-        dates: "2017-2018",
-        title: "Certification in Web Dev",
-        subtitle: "University of Stanford",
-        degree: 5.0,
-        overall: 5
-    ),
-    ResumeEducationObject(
-        dates: "2014-2016",
-        title: "Advanced UX/UI Bootcamp",
-        subtitle: "Design Academy",
-        degree: 4.9,
-        overall: 5
-    ),
-    ResumeEducationObject(
-        dates: "2012-2013",
-        title: "Certification in Graphic Design",
-        subtitle: "Coursera",
-        degree: 4.8,
-        overall: 5
+      dates: "2013-2018",
+      title: "Bachelor's Degree - Informatics Engineering",
+      subtitle: "University of Tishreen",
+      degree: 76.6,
+      overall: 100
     ),
   ];
 
   static List<ResumeExperienceObject> experienceList = <ResumeExperienceObject>[
     ResumeExperienceObject(
-      dates: "2019 - Present",
-      title: "Senior UI/UX Designer",
-      subTitle: "Leader in Creative team"
+        dates: "2025 - Present",
+        title: "Java Backend Developer",
+        subTitle: "Maids.cc - UAE"
     ),
     ResumeExperienceObject(
-        dates: "2016 - 2019",
-        title: "UI/UX Designer at BOS Agency",
-        subTitle: "Tech Startup"
+        dates: "2024 - 2024",
+        title: "Mobile Developer",
+        subTitle: "APPS GATE - UAE"
     ),
     ResumeExperienceObject(
-        dates: "2014-2016",
-        title: "Freelance UI/UX Designer",
-        subTitle: "Self-Employed"
+        dates: "2024 - Present",
+        title: "Mobile Developer",
+        subTitle: "Electo Mall - Erbil"
     ),
     ResumeExperienceObject(
-        dates: "2012 - 2014",
-        title: "Junior UI Designer",
-        subTitle: "Web Solutions team"
+        dates: "2023 - Present",
+        title: "Mobile Developer",
+        subTitle: "Realistic Solutions - Saudi Arabia" 
+    ),
+    ResumeExperienceObject(
+        dates: "2022 - 2024",
+        title: "Mobile Developer",
+        subTitle: "MK Group - Saudi Arabia"
+    ),
+    ResumeExperienceObject(
+      dates: "2022 - Present",
+      title: "Mobile Developer",
+      subTitle: "Maids.cc - UAE"
+    ),
+    ResumeExperienceObject(
+        dates: "2023 - 2024",
+        title: "Mobile Developer",
+        subTitle: "DATUM - Iraq"
+    ),
+    ResumeExperienceObject(
+        dates: "2021 - 2022",
+        title: "Mobile Developer",
+        subTitle: "SellAnyAd - Germany"
+    ),
+    ResumeExperienceObject(
+        dates: "2020-2020",
+        title: "Android Developer",
+        subTitle: "Tecomsa - Lebanon"
+    ),
+    ResumeExperienceObject(
+        dates: "2018 - 2020",
+        title: "Android Developer",
+        subTitle: "SCIT - Syria"
     ),
   ];
 }

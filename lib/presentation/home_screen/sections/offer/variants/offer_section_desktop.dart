@@ -8,12 +8,10 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/offer/widgets
 
 class OfferSectionDesktop extends StatefulWidget {
 
-  final VoidCallback onQuotePressed;
   final VoidCallback onSectionPressed;
 
   const OfferSectionDesktop({
     super.key,
-    required this.onQuotePressed,
     required this.onSectionPressed
   });
 
@@ -57,18 +55,6 @@ class _OfferSectionDesktopState extends State<OfferSectionDesktop> {
                   ),
                 ),
               ),
-              CustomButton(
-                  title: OfferSectionDataset.getQuote,
-                  icon: AppIcons.arrowRight,
-                  verticalPadding: eighteen,
-                  horizontalPadding: thirty,
-                  fontSize: seventeen,
-                  iconSize: twenty,
-                  borderRadius: twenty,
-                  innerPadding: twenty,
-                  rotatedIcon: true,
-                  onPressed: widget.onQuotePressed
-              )
             ],
           ),
           SizedBox(height: thirty,),

@@ -13,7 +13,15 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/home/dataset/
 import 'package:my_new_portfolio/presentation/home_screen/sections/home/widgets/home_tech_widget.dart';
 
 class HomeSectionDesktop extends StatefulWidget {
-  const HomeSectionDesktop({super.key});
+
+  final VoidCallback onDownloadCVPressed;
+  final VoidCallback onHireMePressed;
+
+  const HomeSectionDesktop({
+    super.key,
+    required this.onDownloadCVPressed,
+    required this.onHireMePressed
+  });
 
   @override
   State<HomeSectionDesktop> createState() => _HomeSectionDesktopState();
@@ -120,7 +128,7 @@ class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
                                       iconSize: twenty,
                                       borderRadius: twenty,
                                       innerPadding: twenty,
-                                      onPressed: (){}
+                                      onPressed: widget.onDownloadCVPressed
                                   ),
                                   SizedBox(width: ten,),
                                   CustomButton(
@@ -134,7 +142,7 @@ class _HomeSectionDesktopState extends State<HomeSectionDesktop> {
                                       innerPadding: twenty,
                                       backColor: AppColors.primaryBackgroundColor,
                                       borderColor: AppColors.primaryColor,
-                                      onPressed: (){}
+                                      onPressed: widget.onHireMePressed
                                   ),
                                 ],
                               ),

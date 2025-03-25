@@ -37,19 +37,23 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
         SizedBox(height: thirty,),
         MouseRegion(
           onEnter: (v){
-            setState(() {
-              hovered = true;
-            });
+            if(!_isEmpty){
+              setState(() {
+                hovered = true;
+              });
+            }
           },
           onExit: (v){
-            setState(() {
-              hovered = false;
-            });
+            if(!_isEmpty) {
+              setState(() {
+                hovered = false;
+              });
+            }
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: !_isEmpty? BoxDecoration(
               gradient: LinearGradient(
                 colors: hovered? [Colors.white, Colors.white] : [
                   AppColors.primaryColor,
@@ -59,28 +63,28 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
                 end: Alignment.bottomCenter
               ),
               borderRadius: BorderRadius.circular(fifteen)
-            ),
+            ) : null,
             child: Container(
               width: double.infinity,
               padding: EdgeInsets.all(twenty),
               margin: const EdgeInsets.all(1.0),
               decoration: BoxDecoration(
                 color: AppColors.secondaryColor,
-                borderRadius: BorderRadius.circular(fifteen),
+                borderRadius: !_isEmpty? BorderRadius.circular(fifteen) : null,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    widget.data.dates,
+                    !_isEmpty? widget.data.dates : " ",
                     style: AppStyles.boldPrimaryColor.copyWith(
                       fontSize: sixteen
                     ),
                   ),
                   SizedBox(height: ten,),
                   Text(
-                    widget.data.title,
+                    !_isEmpty? widget.data.title : " ",
                     style: AppStyles.boldWhite.copyWith(
                       fontSize: twentyTwo
                     ),
@@ -90,14 +94,14 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
                     children: [
                       Expanded(
                         child: Text(
-                          widget.data.subtitle,
+                          !_isEmpty? widget.data.subtitle : " ",
                           style: AppStyles.normalTextGrey2.copyWith(
                             fontSize: sixteen
                           ),
                         ),
                       ),
                       Text(
-                        "${widget.data.degree}/${widget.data.overall}",
+                        !_isEmpty? "${widget.data.degree}/${widget.data.overall}" : " ",
                         style: AppStyles.boldPrimaryColor.copyWith(
                           fontSize: twentyTwo
                         ),
@@ -112,4 +116,6 @@ class _ResumeEducationWidgetDesktopState extends State<ResumeEducationWidgetDesk
       ],
     );
   }
+
+  get _isEmpty => widget.data.degree == 0;
 }

@@ -106,12 +106,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         }
                       },
-                      child: HomeSection(key: keys[0],)),
+                      child: HomeSection(
+                        key: keys[0],
+                        onDownloadCVPressed: (){},
+                        onHireMePressed: (){
+                          Scrollable.ensureVisible(keys.last.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
+                        },
+                      )),
                   const NumbersSection(),
                   OfferSection(
                     key: keys[1],
-                    onQuotePressed: (){},
-                    onSectionPressed: (){},
+                    onSectionPressed: (){
+                      Scrollable.ensureVisible(keys.first.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
+                    },
                   ),
                   LatestWorkSection(
                     key: keys[2],

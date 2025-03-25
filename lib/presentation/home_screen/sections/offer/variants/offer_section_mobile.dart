@@ -8,12 +8,10 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/offer/widgets
 
 class OfferSectionMobile extends StatefulWidget {
 
-  final VoidCallback onQuotePressed;
   final VoidCallback onSectionPressed;
 
   const OfferSectionMobile({
     super.key,
-    required this.onQuotePressed,
     required this.onSectionPressed
   });
 
@@ -53,19 +51,6 @@ class _OfferSectionMobileState extends State<OfferSectionMobile> {
             style: AppStyles.normalTextGrey2.copyWith(
                 fontSize: sixteen
             ),
-          ),
-          SizedBox(height: seventeen,),
-          CustomButton(
-              title: OfferSectionDataset.getQuote,
-              icon: AppIcons.arrowRight,
-              verticalPadding: sixteen,
-              horizontalPadding: thirty,
-              fontSize: fourteen,
-              iconSize: eighteen,
-              borderRadius: eighteen,
-              innerPadding: eighteen,
-              rotatedIcon: true,
-              onPressed: widget.onQuotePressed
           ),
           SizedBox(height: thirty,),
           ListView.builder(

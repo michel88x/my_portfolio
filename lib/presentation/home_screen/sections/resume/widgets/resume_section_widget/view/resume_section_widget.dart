@@ -12,13 +12,15 @@ class ResumeSectionWidget extends StatelessWidget {
   final String title;
   final List<ResumeEducationObject>? educationList;
   final List<ResumeExperienceObject>? experienceList;
+  final bool withBottomPadding;
 
   const ResumeSectionWidget({
     super.key,
     required this.icon,
     required this.title,
     this.educationList,
-    this.experienceList
+    this.experienceList,
+    this.withBottomPadding = false
   });
 
   @override
@@ -35,6 +37,7 @@ class ResumeSectionWidget extends StatelessWidget {
         title: title,
         educationList: educationList,
         experienceList: experienceList,
+        withBottomPadding: withBottomPadding,
       ),
       mobile: (context) => ResumeSectionWidgetMobile(
         icon: icon,

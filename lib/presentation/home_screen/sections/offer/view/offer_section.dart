@@ -6,11 +6,9 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class OfferSection extends StatelessWidget {
 
-  final VoidCallback onQuotePressed;
   final VoidCallback onSectionPressed;
   const OfferSection({
     super.key,
-    required this.onQuotePressed,
     required this.onSectionPressed
   });
 
@@ -18,15 +16,12 @@ class OfferSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       desktop: (context) => OfferSectionDesktop(
-        onQuotePressed: onQuotePressed,
         onSectionPressed: onSectionPressed,
       ),
       tablet: (context) => OfferSectionTablet(
-        onQuotePressed: onQuotePressed,
         onSectionPressed: onSectionPressed,
       ),
       mobile: (context) => OfferSectionMobile(
-        onQuotePressed: onQuotePressed,
         onSectionPressed: onSectionPressed,
       ),
     );

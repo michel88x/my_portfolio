@@ -81,6 +81,7 @@ class _ResumeSectionTabletState extends State<ResumeSectionTablet> {
                   icon: AppIcons.experience,
                   title: ResumeSectionDataset.experience,
                   experienceList: ResumeSectionDataset.experienceList,
+                  withBottomPadding: true,
                 ),
               ),
             ],

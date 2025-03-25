@@ -4,6 +4,7 @@ import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_education_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_experience_object.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/resume/dataset/resume_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_education_widget/view/resume_education_widget.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/resume/widgets/resume_experience_widget/view/resume_experience_widget.dart';
 
@@ -107,10 +108,18 @@ class ResumeSectionWidgetDesktop extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: educationList != null? educationList!.length : experienceList!.length,
+              itemCount: ResumeSectionDataset.experienceList.length,
               itemBuilder: (context, index){
                 if(educationList != null){
-                  return ResumeEducationWidget(data: educationList![index]);
+                  return ResumeEducationWidget(data:index >= educationList!.length?
+                  ResumeEducationObject(
+                    dates: "",
+                    title: "",
+                    subtitle: "",
+                    degree: 0,
+                    overall: 0
+                  ) :
+                  educationList![index]);
                 }
                 return ResumeExperienceWidget(data: experienceList![index]);
               },
