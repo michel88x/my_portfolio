@@ -25,4 +25,6 @@ class AppIcons {
   static const String sellAnyAd = "$icons/sellAnyAd.png";
   static const String tecomsa = "$icons/tecomsa.png";
   static const String datum = "$icons/datum.png";
+  static const String googlePlay = "$icons/google_play.png";
+  static const String appStore = "$icons/app_store.png";
 }

@@ -6,29 +6,16 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class LatestWorkSection extends StatelessWidget {
 
-  final VoidCallback onViewAllProjectsPressed;
-  final Function(String) onItemPressed;
   const LatestWorkSection({
     super.key,
-    required this.onViewAllProjectsPressed,
-    required this.onItemPressed
   });
 
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      desktop: (context) => LatestWorkDesktop(
-        onViewAllProjectsPressed: onViewAllProjectsPressed,
-        onItemPressed: onItemPressed,
-      ),
-      tablet: (context) => LatestWorkTablet(
-        onViewAllProjectsPressed: onViewAllProjectsPressed,
-        onItemPressed: onItemPressed,
-      ),
-      mobile: (context) => LatestWorkMobile(
-        onViewAllProjectsPressed: onViewAllProjectsPressed,
-        onItemPressed: onItemPressed,
-      ),
+      desktop: (context) => const LatestWorkDesktop(),
+      tablet: (context) => const LatestWorkTablet(),
+      mobile: (context) => const LatestWorkMobile(),
     );
   }
 }

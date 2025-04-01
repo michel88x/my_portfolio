@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animated_switcher_plus/animated_switcher_plus.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,15 +8,14 @@ import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_object.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LatestWorkWidgetDesktop extends StatefulWidget {
   final LatestWorkObject data;
-  final Function(String) onPressed;
 
   const LatestWorkWidgetDesktop(
       {super.key,
-      required this.data,
-      required this.onPressed});
+      required this.data});
 
   @override
   State<LatestWorkWidgetDesktop> createState() =>
@@ -23,11 +23,12 @@ class LatestWorkWidgetDesktop extends StatefulWidget {
 }
 
 class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
   late Animation<Color?> _arrowColorAnimation;
   late Animation<double> _rotateAnimation;
+  bool showArrow = true;
 
   @override
   void initState() {
@@ -68,7 +69,9 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
         }
       },
       onTap: () {
-        widget.onPressed(widget.data.url);
+        setState(() {
+          showArrow = !showArrow;
+        });
       },
       child: Container(
         width: double.infinity,
@@ -118,37 +121,91 @@ class _LatestWorkWidgetDesktopState extends State<LatestWorkWidgetDesktop>
                         .copyWith(fontSize: fifteen),
                   ),
                 ),
-                AnimatedBuilder(
-                    animation: _colorAnimation,
-                    builder: (colorContext, colorChild) {
-                      return Container(
-                        width: fourty,
-                        height: fourty,
-                        decoration: BoxDecoration(
-                            color: _colorAnimation.value,
-                            shape: BoxShape.circle),
-                        child: Center(
-                          child: AnimatedBuilder(
-                              animation: _rotateAnimation,
-                              builder: (rotateContext, rotateChild) {
-                                return Transform.rotate(
-                                  angle: _rotateAnimation.value,
-                                  child: AnimatedBuilder(
-                                      animation: _arrowColorAnimation,
-                                      builder:
-                                          (arrowColorContext, arrowColorChild) {
-                                        return Image.asset(
-                                          AppIcons.arrowRight,
-                                          color: _arrowColorAnimation.value,
-                                          width: twentyFive,
-                                          height: twentyFive,
-                                        );
-                                      }),
-                                );
-                              }),
+                AnimatedSwitcherPlus.flipY(
+                  duration: const Duration(milliseconds: 500),
+                  child: showArrow ?
+                  AnimatedBuilder(
+                      animation: _colorAnimation,
+                      builder: (colorContext, colorChild) {
+                        return Container(
+                          width: fourty,
+                          height: fourty,
+                          decoration: BoxDecoration(
+                              color: _colorAnimation.value,
+                              shape: BoxShape.circle),
+                          child: Center(
+                            child: AnimatedBuilder(
+                                animation: _rotateAnimation,
+                                builder: (rotateContext, rotateChild) {
+                                  return Transform.rotate(
+                                    angle: _rotateAnimation.value,
+                                    child: AnimatedBuilder(
+                                        animation: _arrowColorAnimation,
+                                        builder:
+                                            (arrowColorContext, arrowColorChild) {
+                                          return Image.asset(
+                                            AppIcons.arrowRight,
+                                            color: _arrowColorAnimation.value,
+                                            width: twentyFive,
+                                            height: twentyFive,
+                                          );
+                                        }),
+                                  );
+                                }),
+                          ),
+                        );
+                      }) :
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if(widget.data.googlePlayUrl != null && widget.data.googlePlayUrl!.isNotEmpty)
+                        InkWell(
+                          onTap: (){
+                            launchUrl(Uri.parse(widget.data.googlePlayUrl!));
+                          },
+                          child: Container(
+                            width: fourty,
+                            height: fourty,
+                            margin: EdgeInsets.symmetric(horizontal: fifteen /2),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                AppIcons.googlePlay,
+                                width: twentyFive,
+                                height: twentyFive,
+                              ),
+                            ),
+                          ),
                         ),
-                      );
-                    })
+                      if(widget.data.appStoreUrl != null && widget.data.appStoreUrl!.isNotEmpty)
+                        InkWell(
+                          onTap: (){
+                            launchUrl(Uri.parse(widget.data.appStoreUrl!));
+                          },
+                          child: Container(
+                            width: fourty,
+                            height: fourty,
+                            margin: EdgeInsets.symmetric(horizontal: fifteen /2),
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                AppIcons.appStore,
+                                width: twentyFive,
+                                height: twentyFive,
+                              ),
+                            ),
+                          ),
+                        )
+                    ],
+                  )
+                ),
+
               ],
             )
           ],

@@ -8,29 +8,97 @@ class LatestWorkSectionDataset{
   static const String viewAllProjects = "View All Projects";
   static List<LatestWorkObject> list = <LatestWorkObject>[
     LatestWorkObject(
-        title: "Photo App UI/UX",
-        subtitle: "Bokeh network",
-        image: AppImages.latestWork1,
-        url: ""
+        title: "ElectroMall",
+        subtitle: "Retail electronics store",
+        image: AppImages.appElectro,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.electromall.app",
+        appStoreUrl: "https://apps.apple.com/co/app/electro-mall/id1551775404"
     ),
     LatestWorkObject(
-        title: "Mobile App Design",
-        subtitle: "Tech Innovators Inc.",
-        image: AppImages.latestWork2,
-        url: ""
+        title: "Maids.cc",
+        subtitle: "Get a full-time maid or a maid visa",
+        image: AppImages.appMaids,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=cc.maids.app",
+        appStoreUrl: "https://apps.apple.com/co/app/maids-cc/id1498420736"
     ),
     LatestWorkObject(
-        title: "Interaction Design",
-        subtitle: "HealthTrack Solutions",
-        image: AppImages.latestWork3,
-        url: ""
+        title: "Yaya App",
+        subtitle: "Maids.cc maids' app",
+        image: AppImages.appYaya,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=cc.maids.yaya_app"
     ),
     LatestWorkObject(
-        title: "Design Consultation",
-        subtitle: "Creative Pulse Studios",
-        image: AppImages.latestWork4,
-        url: ""
+        title: "Kelshimall",
+        subtitle: "Online marketplace",
+        image: AppImages.appKelshi,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.keshi_mall.klshi_mall"
     ),
+    LatestWorkObject(
+        title: "LensGo",
+        subtitle: "Your Ultimate Hub for Photography Networking",
+        image: AppImages.appLensGo,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=io.lensgo.app"
+    ),
+    LatestWorkObject(
+        title: "Jenni Plus",
+        subtitle: "Delivery and order management app",
+        image: AppImages.appJenni,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.datum.jenni_plus",
+        appStoreUrl: "https://apps.apple.com/co/app/jenni-plus/id6503188941"
+    ),
+    LatestWorkObject(
+        title: "MatrixCEX",
+        subtitle: "Digital currency trading platform",
+        image: AppImages.appMatrixCEX,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.matrixcex.app"
+    ),
+    LatestWorkObject(
+        title: "Ard Alriyam Plus",
+        subtitle: "Delivery and order management app",
+        image: AppImages.appArd,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.datum.ard_alreyaam_2",
+        appStoreUrl: "https://apps.apple.com/co/app/ard-alreyaam-plus/id6503239145"
+    ),
+    LatestWorkObject(
+        title: "Alrayapoet",
+        subtitle: "A popular poetry competition app",
+        image: AppImages.appRaya,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.app.rayapoet2",
+        appStoreUrl: "https://apps.apple.com/co/app/alrayapoet/id6454329302"
+    ),
+    LatestWorkObject(
+        title: "Golden Glag",
+        subtitle: "Delivery and order management app",
+        image: AppImages.appGoldenFlag,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.apps.golden_flag",
+        appStoreUrl: "https://apps.apple.com/co/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%A7%D9%84%D8%B9%D9%84%D9%85-%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A/id6476773887"
+    ),
+    LatestWorkObject(
+        title: "The Saudi Cup",
+        subtitle: "Saudi Horse Competition guests app",
+        image: AppImages.appSaudiCup,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.app.saudicup",
+        appStoreUrl: "https://apps.apple.com/co/app/the-saudi-cup/id6738836769"
+    ),
+    LatestWorkObject(
+        title: "Salam Education",
+        subtitle: "Al Salam school staff management app",
+        image: AppImages.appSalam,
+        url: "",
+        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.salam.edu.salam_education_app",
+    ),
+
   ];
 
   static const String viewAll = "View All";

@@ -9,12 +9,10 @@ import 'package:responsive_builder/responsive_builder.dart';
 class LatestWorkWidget extends StatefulWidget {
 
   final LatestWorkObject data;
-  final Function(String) onPressed;
 
   const LatestWorkWidget({
     super.key,
     required this.data,
-    required this.onPressed
   });
 
   @override
@@ -28,15 +26,12 @@ class _LatestWorkWidgetState extends State<LatestWorkWidget>{
     return ScreenTypeLayout.builder(
       desktop: (context) => LatestWorkWidgetDesktop(
           data: widget.data,
-          onPressed: widget.onPressed
       ),
       tablet: (context) => LatestWorkWidgetTablet(
           data: widget.data,
-          onPressed: widget.onPressed
       ),
       mobile: (context) => LatestWorkWidgetMobile(
           data: widget.data,
-          onPressed: widget.onPressed
       ),
     );
   }

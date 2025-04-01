@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
-import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
-import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/widgets/latest_work_widget/view/latest_work_widget.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/widgets/view_all_latest_work_widget/view/view_all_latest_work_widget.dart';
 
 class LatestWorkDesktop extends StatefulWidget {
 
-  final VoidCallback onViewAllProjectsPressed;
-  final Function(String) onItemPressed;
-
   const LatestWorkDesktop({
     super.key,
-    required this.onViewAllProjectsPressed,
-    required this.onItemPressed
   });
 
   @override
@@ -24,10 +18,10 @@ class LatestWorkDesktop extends StatefulWidget {
 
 class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
 
+  List<LatestWorkObject> list = LatestWorkSectionDataset.list.sublist(0,4);
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double seventeen = width * 0.01124338624; //17
     double eighteen = width * 0.0119047619; //18
     double twenty = width * 0.01322751323; //20
     double thirty = width * 0.01984126984; //30
@@ -60,18 +54,6 @@ class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
                     ),
                   ),
                 ),
-                CustomButton(
-                    title: LatestWorkSectionDataset.viewAllProjects,
-                    icon: AppIcons.arrowRight,
-                    verticalPadding: eighteen,
-                    horizontalPadding: thirty,
-                    fontSize: seventeen,
-                    iconSize: twenty,
-                    borderRadius: twenty,
-                    innerPadding: twenty,
-                    rotatedIcon: true,
-                    onPressed: widget.onViewAllProjectsPressed
-                )
               ],
             ),
             SizedBox(height: thirty,),
@@ -85,20 +67,31 @@ class _LatestWorkDesktopState extends State<LatestWorkDesktop> {
                   mainAxisSpacing: thirty,
                   crossAxisSpacing: twenty,
                 ),
-                itemCount: LatestWorkSectionDataset.list.length,
+                itemCount: list.length,
                 itemBuilder: (context, index){
                   return LatestWorkWidget(
-                      data: LatestWorkSectionDataset.list[index],
-                      onPressed: widget.onItemPressed
+                      data: list[index],
                   );
                 }
             ),
-            SizedBox(height: thirty,),
-            Center(
-              child: ViewAllLatestWorkWidget(
-                onPressed: widget.onViewAllProjectsPressed,
-              ),
-            )
+            if(list.length != LatestWorkSectionDataset.list.length)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: thirty,),
+                  Center(
+                    child: ViewAllLatestWorkWidget(
+                      onPressed: (){
+                        setState(() {
+                          list.addAll(LatestWorkSectionDataset.list.sublist(list.length, list.length +
+                              ((LatestWorkSectionDataset.list.length - list.length)>=4? 4 : (LatestWorkSectionDataset.list.length - list.length))));
+                        });
+                      },
+                    ),
+                  )
+                ],
+              )
           ],
         ),
       ),

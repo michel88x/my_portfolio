@@ -3,19 +3,15 @@ import 'package:my_new_portfolio/core/app/app_colors.dart';
 import 'package:my_new_portfolio/core/app/app_icons.dart';
 import 'package:my_new_portfolio/core/app/app_styles.dart';
 import 'package:my_new_portfolio/core/base_widgets/custom_button.dart';
+import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_object.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/dataset/latest_work_section_dataset.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/widgets/latest_work_widget/view/latest_work_widget.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/latest_work/widgets/view_all_latest_work_widget/view/view_all_latest_work_widget.dart';
 
 class LatestWorkMobile extends StatefulWidget {
 
-  final VoidCallback onViewAllProjectsPressed;
-  final Function(String) onItemPressed;
-
   const LatestWorkMobile({
     super.key,
-    required this.onViewAllProjectsPressed,
-    required this.onItemPressed
   });
 
   @override
@@ -23,15 +19,16 @@ class LatestWorkMobile extends StatefulWidget {
 }
 
 class _LatestWorkMobileState extends State<LatestWorkMobile> {
+
+  List<LatestWorkObject> list = LatestWorkSectionDataset.list.sublist(0,4);
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double ten = width * 0.01669449082; //10
-    double fourteen = width * 0.02337228715; //14
     double seventeen = width * 0.03338898164; //15
     double sixteen = width * 0.02671118531; //13
     double twenty = width * 0.02504173623; //15
-    double eighteen = width * 0.03005008347; //18
     double thirty = width * 0.04173622705; //25
     double seventy = width * 0.07512520868; //50
     double eighty = width * 0.1085141903; //60
@@ -58,19 +55,6 @@ class _LatestWorkMobileState extends State<LatestWorkMobile> {
                   fontSize: sixteen
               ),
             ),
-            SizedBox(height: seventeen,),
-            CustomButton(
-                title: LatestWorkSectionDataset.viewAllProjects,
-                icon: AppIcons.arrowRight,
-                verticalPadding: sixteen,
-                horizontalPadding: thirty,
-                fontSize: fourteen,
-                iconSize: eighteen,
-                borderRadius: eighteen,
-                innerPadding: eighteen,
-                rotatedIcon: true,
-                onPressed: widget.onViewAllProjectsPressed
-            ),
             SizedBox(height: thirty,),
             GridView.builder(
                 shrinkWrap: true,
@@ -82,20 +66,31 @@ class _LatestWorkMobileState extends State<LatestWorkMobile> {
                   mainAxisSpacing: thirty,
                   crossAxisSpacing: twenty,
                 ),
-                itemCount: LatestWorkSectionDataset.list.length,
+                itemCount: list.length,
                 itemBuilder: (context, index){
                   return LatestWorkWidget(
-                      data: LatestWorkSectionDataset.list[index],
-                      onPressed: widget.onItemPressed
+                      data: list[index],
                   );
                 }
             ),
-            SizedBox(height: thirty,),
-            Center(
-              child: ViewAllLatestWorkWidget(
-                onPressed: widget.onViewAllProjectsPressed,
-              ),
-            )
+            if(list.length != LatestWorkSectionDataset.list.length)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: thirty,),
+                Center(
+                  child: ViewAllLatestWorkWidget(
+                    onPressed: (){
+                      setState(() {
+                        list.addAll(LatestWorkSectionDataset.list.sublist(list.length, list.length +
+                            ((LatestWorkSectionDataset.list.length - list.length)>=4? 4 : (LatestWorkSectionDataset.list.length - list.length))));
+                      });
+                    },
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),
