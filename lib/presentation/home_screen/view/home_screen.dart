@@ -93,63 +93,63 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // VisibilityDetector(
-                  //     key: const Key("HomeSection"),
-                  //     onVisibilityChanged: (v){
-                  //       if(v.visibleFraction == 0.0){
-                  //         setState(() {
-                  //           showFloatingActionButton = true;
-                  //         });
-                  //       }else{
-                  //         setState(() {
-                  //           showFloatingActionButton = false;
-                  //         });
-                  //       }
-                  //     },
-                  //     child: HomeSection(
-                  //       key: keys[0],
-                  //       onDownloadCVPressed: (){},
-                  //       onHireMePressed: (){
-                  //         Scrollable.ensureVisible(keys.last.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
-                  //       },
-                  //     )),
-                  // const NumbersSection(),
-                  // OfferSection(
-                  //   key: keys[1],
-                  //   onSectionPressed: (){
-                  //     Scrollable.ensureVisible(keys.first.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
-                  //   },
-                  // ),
+                  VisibilityDetector(
+                      key: const Key("HomeSection"),
+                      onVisibilityChanged: (v){
+                        if(v.visibleFraction == 0.0){
+                          setState(() {
+                            showFloatingActionButton = true;
+                          });
+                        }else{
+                          setState(() {
+                            showFloatingActionButton = false;
+                          });
+                        }
+                      },
+                      child: HomeSection(
+                        key: keys[0],
+                        onDownloadCVPressed: (){},
+                        onHireMePressed: (){
+                          Scrollable.ensureVisible(keys.last.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
+                        },
+                      )),
+                  const NumbersSection(),
+                  OfferSection(
+                    key: keys[1],
+                    onSectionPressed: (){
+                      Scrollable.ensureVisible(keys.first.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
+                    },
+                  ),
                   LatestWorkSection(
                     key: keys[2],
                   ),
-                  // ResumeSection(
-                  //   key: keys[3],
-                  //   onTouchPressed: (){},
-                  // ),
-                  // SkillsSection(
-                  //   key: keys[4],
-                  // ),
-                  // const CompaniesSection(),
-                  // const BlogSection(),
-                  // ContactSection(
-                  //   key: keys[5],
-                  //   onMessageSent: (contactDetails){},
-                  //   onActionPressed: (actionType, value){
-                  //     if(actionType == ContactActionType.PHONE){
-                  //       launchUrl(Uri.parse("tel:${value.replaceFirst("+", "").replaceAll("-", "")}"));
-                  //     }
-                  //     if(actionType == ContactActionType.EMAIL){
-                  //       launchUrl(Uri.parse("mailto:$value"));
-                  //     }
-                  //     if(actionType == ContactActionType.WHATSAPP){
-                  //       launchUrl(Uri.parse("https://wa.me/${value.replaceAll("-", "")}"));
-                  //     }
-                  //     if(actionType == ContactActionType.TELEGRAM){
-                  //       launchUrl(Uri.parse("https://t.me/${value.replaceAll("-", "")}"));
-                  //     }
-                  //   },
-                  // )
+                  ResumeSection(
+                    key: keys[3],
+                    onTouchPressed: (){},
+                  ),
+                  SkillsSection(
+                    key: keys[4],
+                  ),
+                  const CompaniesSection(),
+                  const BlogSection(),
+                  ContactSection(
+                    key: keys[5],
+                    onMessageSent: (contactDetails){},
+                    onActionPressed: (actionType, value){
+                      if(actionType == ContactActionType.PHONE){
+                        launchUrl(Uri.parse("tel:${value.replaceFirst("+", "").replaceAll("-", "")}"));
+                      }
+                      if(actionType == ContactActionType.EMAIL){
+                        launchUrl(Uri.parse("mailto:$value"));
+                      }
+                      if(actionType == ContactActionType.WHATSAPP){
+                        launchUrl(Uri.parse("https://wa.me/${value.replaceAll("-", "")}"));
+                      }
+                      if(actionType == ContactActionType.TELEGRAM){
+                        launchUrl(Uri.parse("https://t.me/${value.replaceAll("-", "")}"));
+                      }
+                    },
+                  )
                 ],
               ),
             ),
