@@ -134,7 +134,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   const BlogSection(),
                   ContactSection(
                     key: keys[5],
-                    onMessageSent: (contactDetails){},
+                    onMessageSent: (contactDetails) async{
+                      String emailMessage = "Name: ${contactDetails.fullName}\nPhone: ${contactDetails.phone}\nEmail: ${contactDetails.email}\nMessage: ${contactDetails.message}";
+                      Uri emailUri = Uri(
+                        scheme: "mailto",
+                        path: "eng.michel.ibrahim@gmail.com",
+                        query: encodeQueryParameters(<String, String>{
+                          'subject': contactDetails.subject,
+                          'body': emailMessage
+                        }),
+                      );
+                      launchUrl(emailUri);
+                    },
                     onActionPressed: (actionType, value){
                       if(actionType == ContactActionType.PHONE){
                         launchUrl(Uri.parse("tel:${value.replaceFirst("+", "").replaceAll("-", "")}"));
@@ -157,5 +168,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+    '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
   }
 }

@@ -10,6 +10,7 @@ class ContactInputWidgetDesktop extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final int numRows;
+  final bool isError;
 
   const ContactInputWidgetDesktop({
     super.key,
@@ -17,7 +18,8 @@ class ContactInputWidgetDesktop extends StatefulWidget {
     required this.hint,
     required this.controller,
     required this.keyboardType,
-    this.numRows = 1
+    this.numRows = 1,
+    required this.isError
   });
 
   @override
@@ -69,6 +71,7 @@ class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
             horizontalPadding: twelve,
             textSize: fourteen,
           numRows: widget.numRows,
+          isError: widget.isError,
         )
       ],
     );

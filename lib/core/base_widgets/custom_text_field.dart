@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final double textSize;
   final int? numRows;
+  final bool isError;
 
   const CustomTextField({
     super.key,
@@ -24,7 +25,8 @@ class CustomTextField extends StatelessWidget {
     required this.horizontalPadding,
     this.keyboardType = TextInputType.text,
     required this.textSize,
-    this.numRows
+    this.numRows,
+    this.isError = false
   });
 
   @override
@@ -49,23 +51,23 @@ class CustomTextField extends StatelessWidget {
           fillColor: AppColors.primaryBackgroundColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6.0),
-            borderSide: const BorderSide(color: AppColors.textGrey1, width: 1.0)
+            borderSide: BorderSide(color: isError? Colors.red : AppColors.textGrey1, width: 1.0)
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6.0),
-            borderSide: const BorderSide(color: AppColors.textGrey1, width: 1.0),
+            borderSide: BorderSide(color: isError? Colors.red : AppColors.textGrey1, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6.0),
-            borderSide: const BorderSide(color: AppColors.primaryColor, width: 1.0),
+            borderSide: BorderSide(color: isError? Colors.red : AppColors.primaryColor, width: 1.0),
           ),
           disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.0),
-              borderSide: const BorderSide(color: AppColors.textGrey1, width: 1.0)
+              borderSide: BorderSide(color: isError? Colors.red : AppColors.textGrey1, width: 1.0)
           ),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.0),
-              borderSide: const BorderSide(color: AppColors.textGrey1, width: 1.0)
+              borderSide: BorderSide(color: isError? Colors.red : AppColors.textGrey1, width: 1.0)
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding)
         ),

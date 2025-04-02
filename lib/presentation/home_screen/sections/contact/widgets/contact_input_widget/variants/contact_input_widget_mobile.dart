@@ -10,6 +10,7 @@ class ContactInputWidgetMobile extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final int numRows;
+  final bool isError;
 
   const ContactInputWidgetMobile({
     super.key,
@@ -17,7 +18,8 @@ class ContactInputWidgetMobile extends StatefulWidget {
     required this.hint,
     required this.controller,
     required this.keyboardType,
-    required this.numRows
+    required this.numRows,
+    required this.isError
   });
 
   @override
@@ -68,6 +70,7 @@ class _ContactInputWidgetMobileState extends State<ContactInputWidgetMobile> {
           horizontalPadding: twelve,
           textSize: fourteen,
           numRows: widget.numRows,
+          isError: widget.isError,
         )
       ],
     );

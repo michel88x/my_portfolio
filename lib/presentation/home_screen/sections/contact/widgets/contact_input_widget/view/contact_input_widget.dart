@@ -11,6 +11,7 @@ class ContactInputWidget extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final int numRows;
+  final bool isError;
 
   const ContactInputWidget({
     super.key,
@@ -18,15 +19,16 @@ class ContactInputWidget extends StatelessWidget {
     required this.hint,
     required this.controller,
     required this.keyboardType,
-    required this.numRows
+    required this.numRows,
+    required this.isError
   });
 
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      desktop: (context) => ContactInputWidgetDesktop(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
-      tablet: (context) => ContactInputWidgetTablet(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
-      mobile: (context) => ContactInputWidgetMobile(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows),
+      desktop: (context) => ContactInputWidgetDesktop(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows, isError: isError,),
+      tablet: (context) => ContactInputWidgetTablet(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows, isError: isError,),
+      mobile: (context) => ContactInputWidgetMobile(title: title, hint: hint, controller: controller, keyboardType: keyboardType, numRows: numRows, isError: isError,),
     );
   }
 }

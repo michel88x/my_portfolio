@@ -33,6 +33,11 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController subjectController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
+  bool isNameError = false;
+  bool isEmailError = false;
+  bool isPhoneError = false;
+  bool isSubjectError = false;
+  bool isMessageError = false;
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +123,8 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                         hint: ContactSectionDataset.johnDoe,
                         controller: nameController,
                         keyboardType: TextInputType.text,
-                        numRows: 1
+                        numRows: 1,
+                        isError: isNameError,
                     ),
                     SizedBox(height: fifteen,),
                     ContactInputWidget(
@@ -126,7 +132,8 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                         hint: ContactSectionDataset.johnEmail,
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
-                        numRows: 1
+                        numRows: 1,
+                        isError: isEmailError,
                     ),
                     SizedBox(height: fifteen,),
                     ContactInputWidget(
@@ -134,7 +141,8 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                         hint: ContactSectionDataset.johnPhone,
                         controller: phoneController,
                         keyboardType: TextInputType.phone,
-                        numRows: 1
+                        numRows: 1,
+                        isError: isPhoneError,
                     ),
                     SizedBox(height: fifteen,),
                     ContactInputWidget(
@@ -142,7 +150,8 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                         hint: ContactSectionDataset.johnSubject,
                         controller: subjectController,
                         keyboardType: TextInputType.text,
-                        numRows: 1
+                        numRows: 1,
+                        isError: isSubjectError,
                     ),
                     SizedBox(height: fifteen,),
                     ContactInputWidget(
@@ -150,7 +159,8 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                         hint: ContactSectionDataset.johnMessage,
                         controller: messageController,
                         keyboardType: TextInputType.text,
-                        numRows: 10
+                        numRows: 10,
+                        isError: isMessageError,
                     ),
                     SizedBox(height: fifteen,),
                     Row(
@@ -168,33 +178,46 @@ class _ContactSectionTabletState extends State<ContactSectionTablet> {
                                   innerPadding: twenty,
                                   rotatedIcon: true,
                                   onPressed: (){
-                                    if(nameController.text.isNotEmpty){
-                                      showWarningMessage(context, ContactSectionDataset.noName);
-                                      return;
+                                    setState(() {
+                                      isNameError = false;
+                                      isEmailError = false;
+                                      isPhoneError = false;
+                                      isSubjectError = false;
+                                      isMessageError = false;
+                                    });
+                                    List<bool> errors = <bool>[false, false, false, false, false];
+                                    if(nameController.text.isEmpty){
+                                      errors[0] = true;
                                     }
-                                    if(emailController.text.isNotEmpty){
-                                      showWarningMessage(context, ContactSectionDataset.noEmail);
-                                      return;
+                                    if(emailController.text.isEmpty){
+                                      errors[1] = true;
                                     }
-                                    if(phoneController.text.isNotEmpty){
-                                      showWarningMessage(context, ContactSectionDataset.noPhone);
-                                      return;
+                                    if(phoneController.text.isEmpty){
+                                      errors[2] = true;
                                     }
-                                    if(subjectController.text.isNotEmpty){
-                                      showWarningMessage(context, ContactSectionDataset.noSubject);
-                                      return;
+                                    if(subjectController.text.isEmpty){
+                                      errors[3] = true;
                                     }
-                                    if(messageController.text.isNotEmpty){
-                                      showWarningMessage(context, ContactSectionDataset.noMessage);
-                                      return;
+                                    if(messageController.text.isEmpty){
+                                      errors[4] = true;
                                     }
-                                    widget.onMessageSent(ContactDetailsObject(
-                                        fullName: nameController.text,
-                                        email: emailController.text,
-                                        phone: phoneController.text,
-                                        subject: subjectController.text,
-                                        message: messageController.text
-                                    ));
+                                    if(errors.contains(true)){
+                                      setState(() {
+                                        isNameError = errors[0];
+                                        isEmailError = errors[1];
+                                        isPhoneError = errors[2];
+                                        isSubjectError = errors[3];
+                                        isMessageError = errors[4];
+                                      });
+                                    }else{
+                                      widget.onMessageSent(ContactDetailsObject(
+                                          fullName: nameController.text,
+                                          email: emailController.text,
+                                          phone: phoneController.text,
+                                          subject: subjectController.text,
+                                          message: messageController.text
+                                      ));
+                                    }
                                   }
                               );
                             }
