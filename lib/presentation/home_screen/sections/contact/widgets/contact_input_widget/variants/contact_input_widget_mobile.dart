@@ -71,6 +71,7 @@ class _ContactInputWidgetMobileState extends State<ContactInputWidgetMobile> {
           textSize: fourteen,
           numRows: widget.numRows,
           isError: widget.isError,
+          keyboardType: widget.keyboardType,
         )
       ],
     );

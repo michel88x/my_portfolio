@@ -72,6 +72,7 @@ class _ContactInputWidgetDesktopState extends State<ContactInputWidgetDesktop> {
             textSize: fourteen,
           numRows: widget.numRows,
           isError: widget.isError,
+          keyboardType: widget.keyboardType,
         )
       ],
     );

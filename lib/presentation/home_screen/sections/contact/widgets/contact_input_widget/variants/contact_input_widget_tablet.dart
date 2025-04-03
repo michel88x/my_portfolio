@@ -71,6 +71,7 @@ class _ContactInputWidgetTabletState extends State<ContactInputWidgetTablet> {
           textSize: fourteen,
           numRows: widget.numRows,
           isError: widget.isError,
+          keyboardType: widget.keyboardType,
         )
       ],
     );
