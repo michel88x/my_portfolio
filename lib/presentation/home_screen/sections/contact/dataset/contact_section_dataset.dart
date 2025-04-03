@@ -13,6 +13,12 @@ class ContactSectionDataset {
       type: ContactActionType.PHONE
     ),
     ContactActionObject(
+        icon: "${AppImages.onlineImages}/email.png",
+        title: "Email",
+        value: "eng.michel.ibrahim@gmail.com",
+        type: ContactActionType.EMAIL
+    ),
+    ContactActionObject(
       icon: "${AppImages.onlineImages}/whatsapp.png",
       title: "Whatsapp",
       value: "+964-751-747-3109",
