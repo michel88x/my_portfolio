@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
+import 'package:my_new_portfolio/core/app/app_images.dart';
 import 'package:my_new_portfolio/core/utils/base_functions.dart';
 import 'package:my_new_portfolio/core/utils/links.dart';
 import 'package:my_new_portfolio/presentation/home_screen/providers/home_provider.dart';
@@ -110,7 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: HomeSection(
                         key: keys[0],
-                        onDownloadCVPressed: (){},
+                        onDownloadCVPressed: (){
+                          launchUrl(Uri.parse("${AppImages.onlineImages}/my_cv.pdf"));
+                        },
                         onHireMePressed: (){
                           Scrollable.ensureVisible(keys.last.currentContext!, duration: const Duration(milliseconds: 1500), curve: Curves.linear);
                         },
