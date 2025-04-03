@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_portfolio/core/app/app_colors.dart';
+import 'package:my_new_portfolio/core/utils/base_functions.dart';
 import 'package:my_new_portfolio/core/utils/links.dart';
 import 'package:my_new_portfolio/presentation/home_screen/providers/home_provider.dart';
 import 'package:my_new_portfolio/presentation/home_screen/sections/blog/view/blog_section.dart';
@@ -14,6 +15,7 @@ import 'package:my_new_portfolio/presentation/home_screen/sections/skills/view/s
 import 'package:my_new_portfolio/presentation/home_screen/widgets/app_drawer/view/app_drawer.dart';
 import 'package:my_new_portfolio/presentation/home_screen/widgets/top_bar/top_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -135,16 +137,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ContactSection(
                     key: keys[5],
                     onMessageSent: (contactDetails) async{
-                      String emailMessage = "Name: ${contactDetails.fullName}\nPhone: ${contactDetails.phone}\nEmail: ${contactDetails.email}\nMessage: ${contactDetails.message}";
-                      Uri emailUri = Uri(
-                        scheme: "mailto",
-                        path: "eng.michel.ibrahim@gmail.com",
-                        query: encodeQueryParameters(<String, String>{
-                          'subject': contactDetails.subject,
-                          'body': emailMessage
-                        }),
-                      );
-                      launchUrl(emailUri);
+                      final supabase = Supabase.instance.client;
+                      await supabase
+                          .from('Requests')
+                          .insert(contactDetails.toJson());
+                      showSuccessMessage(context, "Your message has been sent successfully");
                     },
                     onActionPressed: (actionType, value){
                       if(actionType == ContactActionType.PHONE){

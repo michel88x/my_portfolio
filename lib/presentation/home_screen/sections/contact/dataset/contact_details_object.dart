@@ -12,4 +12,14 @@ class ContactDetailsObject {
     required this.subject,
     required this.message
 });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'fullname': fullName,
+      'email': email,
+      'phone': phone,
+      'subject': subject,
+      'message': message,
+    };
+  }
 }
