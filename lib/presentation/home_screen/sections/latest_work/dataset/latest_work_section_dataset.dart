@@ -38,13 +38,6 @@ class LatestWorkSectionDataset{
         googlePlayUrl: "https://play.google.com/store/apps/details?id=com.keshi_mall.klshi_mall"
     ),
     LatestWorkObject(
-        title: "LensGo",
-        subtitle: "Your Ultimate Hub for Photography Networking",
-        image: AppImages.appLensGo,
-        url: "",
-        googlePlayUrl: "https://play.google.com/store/apps/details?id=io.lensgo.app"
-    ),
-    LatestWorkObject(
         title: "Jenni Plus",
         subtitle: "Delivery and order management app",
         image: AppImages.appJenni,
@@ -74,14 +67,6 @@ class LatestWorkSectionDataset{
         url: "",
         googlePlayUrl: "https://play.google.com/store/apps/details?id=com.app.rayapoet2",
         appStoreUrl: "https://apps.apple.com/co/app/alrayapoet/id6454329302"
-    ),
-    LatestWorkObject(
-        title: "Golden Glag",
-        subtitle: "Delivery and order management app",
-        image: AppImages.appGoldenFlag,
-        url: "",
-        googlePlayUrl: "https://play.google.com/store/apps/details?id=com.apps.golden_flag",
-        appStoreUrl: "https://apps.apple.com/co/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%A7%D9%84%D8%B9%D9%84%D9%85-%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A/id6476773887"
     ),
     LatestWorkObject(
         title: "The Saudi Cup",

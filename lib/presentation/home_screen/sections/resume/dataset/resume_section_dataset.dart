@@ -27,14 +27,9 @@ class ResumeSectionDataset {
 
   static List<ResumeExperienceObject> experienceList = <ResumeExperienceObject>[
     ResumeExperienceObject(
-        dates: "2025 - Present",
-        title: "Java Backend Developer",
+        dates: "2022 - Present",
+        title: "Software Developer",
         subTitle: "Maids.cc - UAE"
-    ),
-    ResumeExperienceObject(
-        dates: "2024 - 2024",
-        title: "Mobile Developer",
-        subTitle: "APPS GATE - UAE"
     ),
     ResumeExperienceObject(
         dates: "2024 - Present",
@@ -42,19 +37,9 @@ class ResumeSectionDataset {
         subTitle: "Electo Mall - Erbil"
     ),
     ResumeExperienceObject(
-        dates: "2023 - Present",
+        dates: "2023 - 2025",
         title: "Mobile Developer",
-        subTitle: "Realistic Solutions - Saudi Arabia" 
-    ),
-    ResumeExperienceObject(
-        dates: "2022 - 2024",
-        title: "Mobile Developer",
-        subTitle: "MK Group - Saudi Arabia"
-    ),
-    ResumeExperienceObject(
-      dates: "2022 - Present",
-      title: "Mobile Developer",
-      subTitle: "Maids.cc - UAE"
+        subTitle: "RS4IT - Saudi Arabia"
     ),
     ResumeExperienceObject(
         dates: "2023 - 2024",
